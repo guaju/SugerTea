@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_margin="10dp"
+        android:id="@+id/tv_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:textSize="15sp"
+        android:text="定位中..."
+        android:textColor="#fff"
+        android:background="@drawable/bg_home_location"
+        />
+    <EditText
+        android:layout_weight="1"
+        android:textColorHint="#c6c6c6"
+        android:textSize="15sp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/search"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:hint="搜索感兴趣的服务和商家"
+        android:background="@drawable/bg_home_search_white"
+        />
+    <FrameLayout
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_home_location"
+        android:padding="5dp">
+    <ImageButton
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:background="@drawable/ic_msg_white"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+         />
+    </FrameLayout>
+
+</LinearLayout>
