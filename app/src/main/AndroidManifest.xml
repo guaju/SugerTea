@@ -30,7 +30,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <meta-data android:name="TencentMapSDK" android:value="ZXQBZ-24ZCW-TWRRV-O7GMJ-EOYQ5-X2BUZ" />
-        <activity android:name=".MainActivity"
+        <activity android:name=".ui.main.MainActivity"
             android:theme="@style/AppTheme1"
             >
             <intent-filter>

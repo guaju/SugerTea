@@ -12,6 +12,12 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:actionBarStyle">@style/mActionBar</item>
+    </style>
+
+    <style name="mActionBar" parent="@android:style/Widget.Holo.ActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:background">#1f00</item>
     </style>
 
 </resources>

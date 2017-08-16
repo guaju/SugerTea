@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
+    android:background="#0000"
     android:layout_height="match_parent">
     <TextView
         android:layout_margin="10dp"
@@ -27,6 +28,7 @@
         android:background="@drawable/bg_home_search_white"
         />
     <FrameLayout
+        android:id="@+id/fl_msg"
         android:layout_margin="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

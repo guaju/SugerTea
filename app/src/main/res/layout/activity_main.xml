@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.guaju.sugertea.MainActivity">
+    android:background="@drawable/ic_radio_mine_positive"
+    tools:context="com.guaju.sugertea.ui.main.MainActivity">
 
     <FrameLayout
         android:layout_width="match_parent"
