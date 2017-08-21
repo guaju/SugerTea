@@ -28,4 +28,10 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
     compile files('libs/TencentLocationSDK_v6.1.2_r1df4baaa_170627_1056.jar')
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'io.reactivex:rxjava:1.3.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.3.0'
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'de.greenrobot:eventbus:3.0.0-beta1'
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
 }

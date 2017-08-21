@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.HandlerThread;
 import android.support.annotation.RequiresApi;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,10 +14,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.guaju.sugertea.R;
+import com.guaju.sugertea.httputil.HttpHelper;
 import com.guaju.sugertea.model.MyQQLocationManager;
 import com.guaju.sugertea.model.StatusBarManager;
+import com.guaju.sugertea.model.bean.HomeShopBean;
 import com.tencent.map.geolocation.TencentLocationManager;
 import com.tencent.map.geolocation.TencentLocationRequest;
+
+import de.greenrobot.event.EventBus;
+import de.greenrobot.event.Subscribe;
+import de.greenrobot.event.ThreadMode;
 
 public class MainActivity extends Activity implements MainContract.MainView{
     private static final String TAG = "MainActivity";
@@ -26,7 +33,7 @@ public class MainActivity extends Activity implements MainContract.MainView{
     private TextView tv_location;
     private EditText search;
     private FrameLayout fl_msg;
-
+    HandlerThread mHT;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +43,17 @@ public class MainActivity extends Activity implements MainContract.MainView{
         setPresenter(this);
         mainPresenter.mainView.setActionBar(this);
         mainPresenter.mainView.setStatusBar(this);
+        HttpHelper.getInstance().getShopList("104cca5fad614b53e494e5198f4cdb47", "116.125584,40.232219");
+//        shopList.subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(new Action1<HomeShopBean>() {
+//                    @Override
+//                    public void call(HomeShopBean homeShopBean) {
+//                        int code = homeShopBean.getCode();
+//                        Log.e(TAG, "call:~~~~~~~ "+code );
+//                    }
+//                });
+        EventBus.getDefault().register(this);
 
     }
     private void setPresenter(MainContract.MainView mainView){
@@ -81,6 +99,12 @@ public class MainActivity extends Activity implements MainContract.MainView{
 //       //1.在代码中设置背景可用
 //        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00000000")));
     }
+    @Subscribe(threadMode=ThreadMode.MainThread)
+    public void showToast22(MyEvent event){
+        Toast.makeText(this, event.bean.getCode()+"hahaha", Toast.LENGTH_SHORT).show();
+
+    }
+
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -95,5 +119,24 @@ public class MainActivity extends Activity implements MainContract.MainView{
         }else{
             tv_location.setText(address);
         }
+    }
+
+    public static class MyEvent{
+        HomeShopBean bean;
+
+        public MyEvent(HomeShopBean bean) {
+            this.bean = bean;
+        }
+
+        public void setBean(HomeShopBean bean){
+            this.bean=bean;
+        }
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 }
