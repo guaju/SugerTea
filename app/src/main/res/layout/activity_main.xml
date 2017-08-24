@@ -5,14 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/ic_radio_mine_positive"
-    tools:context="com.guaju.sugertea.ui.main.MainActivity">
+    tools:context=".ui.main.MainActivity">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:id="@+id/fl"
+        android:id="@+id/fl_content"
         />
     <RadioGroup
         android:id="@+id/rg"

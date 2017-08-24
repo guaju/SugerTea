@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="mine_title_size">4dp</dimen>
+    <dimen name="base_size1">4dp</dimen>
+    <dimen name="base_size2">8dp</dimen>
+    <dimen name="base_size3">12dp</dimen>
+    <dimen name="base_size4">16dp</dimen>
+    <dimen name="base_size5">20dp</dimen>
+    <dimen name="base_size6">24dp</dimen>
+    <dimen name="base_size7">28dp</dimen>
+    <dimen name="base_size8">32dp</dimen>
+    <dimen name="base_size9">36dp</dimen>
+    <dimen name="base_size10">40dp</dimen>
+
+    <dimen name="size6">6dp</dimen>
+
+    <dimen name="toolbar_size">48dp</dimen>
+    <dimen name="base_margin">@dimen/base_size3</dimen>
+    <dimen name="divider_size">0.2dp</dimen>
+
+    <dimen name="text_size_display4">112dp</dimen>
+    <dimen name="text_size_display3">56dp</dimen>
+    <dimen name="text_size_display2">45dp</dimen>
+    <dimen name="text_size_display1">34dp</dimen>
+    <dimen name="text_size_headline">24dp</dimen>
+    <dimen name="text_size_title">16dp</dimen>
+    <dimen name="text_size_subhead">14dp</dimen>
+    <dimen name="text_size_body">12dp</dimen>
+    <dimen name="text_size_caption">11dp</dimen>
+    <dimen name="text_size_mini">9dp</dimen>
+
+    <dimen name="button_size_normal">48dp</dimen>
+    <dimen name="button_size_small">40dp</dimen>
+    <dimen name="button_size_mini">32dp</dimen>
+    <dimen name="button_size_cute">26dp</dimen>
+
+    <dimen name="chart_line_size">2dp</dimen>
+
+    <dimen name="bind_guideline_1">60dp</dimen>
+    <dimen name="bind_guideline_2">110dp</dimen>
+
+    <dimen name="base_loading_view_size">120dp</dimen>
+
+    <dimen name="ad_icon_size">6dp</dimen>
+    <dimen name="home_collection">192dp</dimen>
+</resources>

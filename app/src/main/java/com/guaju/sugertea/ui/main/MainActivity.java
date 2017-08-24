@@ -5,11 +5,16 @@ import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.HandlerThread;
+import android.support.annotation.IdRes;
 import android.support.annotation.RequiresApi;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +23,8 @@ import com.guaju.sugertea.httputil.HttpHelper;
 import com.guaju.sugertea.model.MyQQLocationManager;
 import com.guaju.sugertea.model.StatusBarManager;
 import com.guaju.sugertea.model.bean.HomeShopBean;
+import com.guaju.sugertea.ui.mine.MineFragment;
+import com.guaju.sugertea.utils.MeasureUtils;
 import com.tencent.map.geolocation.TencentLocationManager;
 import com.tencent.map.geolocation.TencentLocationRequest;
 
@@ -25,7 +32,7 @@ import de.greenrobot.event.EventBus;
 import de.greenrobot.event.Subscribe;
 import de.greenrobot.event.ThreadMode;
 
-public class MainActivity extends Activity implements MainContract.MainView{
+public class MainActivity extends FragmentActivity implements MainContract.MainView{
     private static final String TAG = "MainActivity";
     private MainPresenter mainPresenter;
     private TencentLocationManager locationManager;
@@ -34,6 +41,8 @@ public class MainActivity extends Activity implements MainContract.MainView{
     private EditText search;
     private FrameLayout fl_msg;
     HandlerThread mHT;
+    public int statusBarHeight;
+
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,18 +53,28 @@ public class MainActivity extends Activity implements MainContract.MainView{
         mainPresenter.mainView.setActionBar(this);
         mainPresenter.mainView.setStatusBar(this);
         HttpHelper.getInstance().getShopList("104cca5fad614b53e494e5198f4cdb47", "116.125584,40.232219");
-//        shopList.subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(new Action1<HomeShopBean>() {
-//                    @Override
-//                    public void call(HomeShopBean homeShopBean) {
-//                        int code = homeShopBean.getCode();
-//                        Log.e(TAG, "call:~~~~~~~ "+code );
-//                    }
-//                });
         EventBus.getDefault().register(this);
+        test();
 
     }
+
+    private void test() {
+        RadioGroup rg = (RadioGroup) findViewById(R.id.rg);
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+               if (checkedId==R.id.rb_mine){
+                   FragmentManager fm = getSupportFragmentManager();
+                   FragmentTransaction ft = fm.beginTransaction();
+                   MineFragment mineFragment = new MineFragment();
+                   ft.add(R.id.fl_content,mineFragment,"mine");
+                   ft.commit();
+               }
+
+            }
+        });
+    }
+
     private void setPresenter(MainContract.MainView mainView){
         mainPresenter=new MainPresenter(mainView);
     }
@@ -96,6 +115,7 @@ public class MainActivity extends Activity implements MainContract.MainView{
         search = (EditText) view.findViewById(R.id.search);
         fl_msg = (FrameLayout) view.findViewById(R.id.fl_msg);
 
+
 //       //1.在代码中设置背景可用
 //        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00000000")));
     }
@@ -109,7 +129,11 @@ public class MainActivity extends Activity implements MainContract.MainView{
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void setStatusBar(Activity act) {
+
+
         StatusBarManager.setTranStatusBar(act);
+        statusBarHeight = MeasureUtils.getStatusBarHeight(this);
+
     }
 
     @Override

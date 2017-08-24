@@ -38,6 +38,10 @@ public class HttpHelper {
     public static  HttpHelper getInstance(){
         return    helper;
     }
+
+   /*
+    访问商户列表
+     */
    public void getShopList(String openId,String location){
        Observable<HomeShopBean> jingxuanshanghu = api.homeShop("jingxuanshanghu", openId, 0, location, 1);
        jingxuanshanghu.subscribeOn(Schedulers.io())

@@ -6,4 +6,8 @@
     <color name="selected_text">#f74461</color>
     <color name="normal_text">#ff9e9e9e</color>
     <color name="green">#1100ff00</color>
+    <color name="grey">#888</color>
+    <color name="main_unable">#ff9797</color>
+    <color name="main">#f74461</color>
+    <color name="text_content_secondary">#ff9e9e9e</color>
 </resources>

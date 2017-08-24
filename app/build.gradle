@@ -34,4 +34,13 @@ dependencies {
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'de.greenrobot:eventbus:3.0.0-beta1'
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+
+    compile name:'SMSSDK-3.0.0',ext:'aar'
+    compile name:'SMSSDKGUI-3.0.0',ext:'aar'
+}
+
+repositories{
+    flatDir{
+        dirs 'libs' //就是你放aar的目录地址
+    }
 }

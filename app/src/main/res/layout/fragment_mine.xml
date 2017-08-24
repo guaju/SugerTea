@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:mine="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:background="@drawable/img_mine">
+  <ImageButton
+      android:layout_margin="15dp"
+      android:layout_width="20dp"
+      android:layout_height="20dp"
+      android:background="@drawable/ic_mine_setting"
+      />
+    <ImageButton
+        android:layout_alignParentRight="true"
+        android:layout_margin="15dp"
+        android:layout_width="20dp"
+        android:layout_height="15dp"
+        android:background="@drawable/ic_msg_white"
+        />
+        <FrameLayout
+            android:id="@+id/fl_icon"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/mine_circle"
+            >
+         <ImageView
+          android:layout_gravity="center"
+          android:layout_width="50dp"
+          android:layout_height="50dp"
+          android:background="@drawable/ic_defaul_avatar"
+              />
+        </FrameLayout>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#fff"
+            android:text="请登录"
+            android:layout_below="@+id/fl_icon"
+            android:layout_centerHorizontal="true"
+            />
+
+</RelativeLayout>
+
+           <com.guaju.sugertea.widget.MineListItemView
+               mine:text="订单列表"
+               mine:icon="@drawable/ic_mine_order"
+               android:layout_height="50dp"
+               android:layout_width="wrap_content" />
+    <com.guaju.sugertea.widget.MineListItemView
+        mine:text="收藏店铺"
+        mine:icon="@drawable/ic_mine_collection"
+        android:layout_height="50dp"
+        android:layout_width="wrap_content" />
+    <com.guaju.sugertea.widget.MineListItemView
+        mine:text="优惠券"
+        mine:icon="@drawable/ic_mine_coupon"
+        android:layout_height="50dp"
+        android:layout_width="wrap_content" />
+    <com.guaju.sugertea.widget.MineListItemView
+        mine:text="会员卡"
+        mine:icon="@drawable/ic_mine_vip"
+        android:layout_height="50dp"
+        android:layout_width="wrap_content" />
+    <com.guaju.sugertea.widget.MineListItemView
+        mine:text="商家入驻"
+        mine:icon="@drawable/ic_mine_join"
+        android:layout_height="50dp"
+        android:layout_width="wrap_content" />
+    <com.guaju.sugertea.widget.MineListItemView
+        android:layout_marginTop="12dp"
+        mine:text="联系客服"
+        mine:icon="@drawable/ic_mine_call"
+        android:layout_height="50dp"
+        android:layout_width="wrap_content" />
+
+</LinearLayout>

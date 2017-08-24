@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        app:navigationIcon="@drawable/ic_mine_join"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        />
+
+    <RelativeLayout
+        style="@style/LoginPhoneRlStyle"
+        android:layout_marginTop="40dp">
+
+
+        <ImageView
+            android:id="@+id/phone_ic"
+            style="@style/LoginPhoneIconStyle"
+            android:src="@drawable/ic_input_phone_negative" />
+
+        <EditText
+            android:id="@+id/phone_input"
+            style="@style/LoginPhoneInputStyle"
+            android:layout_toRightOf="@id/phone_ic"
+            android:hint="请输入手机号"
+            android:imeOptions="actionNext"
+            android:inputType="numberSigned" />
+
+        <ImageView
+            style="@style/DividerHorizontalStyle"
+            android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        style="@style/LoginPhoneRlStyle"
+        android:layout_marginTop="20dp">
+
+
+        <ImageView
+            android:id="@+id/password_ic"
+            style="@style/LoginPhoneIconStyle"
+            android:src="@drawable/ic_input_pwd_negative" />
+
+        <TextView
+            android:clickable="true"
+            android:id="@+id/password_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="发送验证码"
+            android:textColor="#c6c6c6"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/password_input"
+            style="@style/LoginPhoneInputStyle"
+            android:layout_toLeftOf="@id/password_button"
+            android:layout_toRightOf="@id/password_ic"
+            android:hint="请输入验证码"
+            android:inputType="numberSigned" />
+
+        <ImageView
+            style="@style/DividerHorizontalStyle"
+            android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/sign_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_size_normal"
+        android:layout_marginLeft="@dimen/base_size4"
+        android:layout_marginRight="@dimen/base_size4"
+        android:layout_marginTop="@dimen/base_size4"
+        android:text="登录"
+        android:background="@drawable/button_main_unable"
+        android:textColor="#fff" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:id="@+id/get_ic_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="72dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="没有收到验证码？"
+            android:textColor="@color/text_content_secondary"
+            android:textSize="@dimen/text_size_body" />
+
+        <TextView
+            android:id="@+id/get_audio_ic_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/base_size3"
+            android:text="点击获取语音验证码"
+            android:textColor="@color/main"
+            android:textSize="@dimen/text_size_body" />
+    </LinearLayout>
+
+</LinearLayout>
