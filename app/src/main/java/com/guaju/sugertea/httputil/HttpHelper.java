@@ -3,9 +3,12 @@ package com.guaju.sugertea.httputil;
 import android.util.Log;
 
 import com.guaju.sugertea.api.API;
+import com.guaju.sugertea.constant.BSConstant;
 import com.guaju.sugertea.constant.Constant;
+import com.guaju.sugertea.model.bean.BaseBean;
 import com.guaju.sugertea.model.bean.HomeShopBean;
 import com.guaju.sugertea.ui.main.MainActivity;
+import com.guaju.sugertea.utils.AppUtil;
 
 import de.greenrobot.event.EventBus;
 import retrofit2.Retrofit;
@@ -54,6 +57,21 @@ public class HttpHelper {
                    }
                });
 
+   }
+
+   /*
+   发送验证码
+    */
+   public void getVerifyCode(String phone,long time,String ip,String mac){
+       Observable<BaseBean> verifycode = api.getVerifycode(BSConstant.VERIFY_CODE, phone, ip, mac, time, AppUtil.encryptSign((time-444)+"","",phone,ip), "1");
+       verifycode.subscribeOn(Schedulers.io())
+               .observeOn(AndroidSchedulers.mainThread())
+               .subscribe(new Action1<BaseBean>() {
+                   @Override
+                   public void call(BaseBean baseBean) {
+                       Log.e(TAG, "call: "+baseBean.getCode());
+                   }
+               });
    }
 
 

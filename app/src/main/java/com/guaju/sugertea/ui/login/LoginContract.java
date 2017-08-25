@@ -15,7 +15,7 @@ public interface LoginContract {
          //切换页面的逻辑
          void switchPage();
          //校验手机号失败吐司
-         void vertifyError();
+         void vertifyPhoneNumError();
      }
      interface LoginPresenter{
          //注册短信验证码监听的逻辑

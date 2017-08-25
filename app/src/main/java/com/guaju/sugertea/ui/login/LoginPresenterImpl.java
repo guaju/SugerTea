@@ -74,7 +74,7 @@ public class LoginPresenterImpl implements LoginContract.LoginPresenter {
             SMSSDK.getVerificationCode("86",phonenumber);
         }else{
             //提示用户手机号校验失败
-            loginView.vertifyError();
+            loginView.vertifyPhoneNumError();
         }
 
     }

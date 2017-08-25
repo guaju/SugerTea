@@ -1,5 +1,4 @@
 package com.guaju.sugertea.ui.mine;
-
 import android.app.ActionBar;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -10,27 +9,20 @@ import com.guaju.sugertea.R;
 import com.guaju.sugertea.base.BaseFragment;
 import com.guaju.sugertea.ui.login.LoginActivity;
 import com.guaju.sugertea.ui.main.MainActivity;
-
 /**
  * Created by guaju on 2017/8/22.
  */
-
 public class MineFragment extends BaseFragment implements View.OnClickListener,MineView {
-
     private FrameLayout fl_icon;
     private MainActivity activity;
     private MineContract.MinePresenter presenter;
     private View v;
-
     @Override
     protected void initData() {
     //本生命周期在view创建完成之后调用
         presenter=new MinePresenterImpl(this);
         presenter.hide();
-
-
     }
-
     @Override
     protected View initView(LayoutInflater inflater) {
         v = inflater.inflate(R.layout.fragment_mine, null, false);
@@ -39,7 +31,6 @@ public class MineFragment extends BaseFragment implements View.OnClickListener,M
         fl_icon.setOnClickListener(this);
         return v;
     }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()){

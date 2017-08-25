@@ -31,11 +31,11 @@ public class LoginActivity  extends AppCompatActivity implements LoginContract.L
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        loginPresenter=new LoginPresenterImpl(this);
+        loginPresenter=new LoginPresenterImpl2(this);
         // 如果希望在读取通信录的时候提示用户，可以添加下面的代码，并且必须在其他代码调用之前，否则不起作用；如果没这个需求，可以不加这行代码
         //SMSSDK.setAskPermisionOnReadContact(boolShowInDialog) ；
         //注册短信验证码监听
-        loginPresenter.registSendCodeListener();
+//        loginPresenter.registSendCodeListener();
         initView();
 
 
@@ -62,7 +62,7 @@ public class LoginActivity  extends AppCompatActivity implements LoginContract.L
             public void onClick(View v) {
                 verificationCode = password_input.getText().toString().trim();
                  //校验
-                loginPresenter.vertifyCode(phonenumber,verificationCode);
+//                loginPresenter.vertifyCode(phonenumber,verificationCode);
             }
         });
 
@@ -70,7 +70,7 @@ public class LoginActivity  extends AppCompatActivity implements LoginContract.L
 
     protected void onDestroy() {
         super.onDestroy();
-        loginPresenter.unRegistSendCodeListener();
+//        loginPresenter.unRegistSendCodeListener();
 
     }
 
@@ -106,7 +106,9 @@ public class LoginActivity  extends AppCompatActivity implements LoginContract.L
     }
 
     @Override
-    public void vertifyError() {
+    public void vertifyPhoneNumError() {
         Toast.makeText(LoginActivity.this, "请重新填写您的手机号", Toast.LENGTH_SHORT).show();
+
     }
+
 }
