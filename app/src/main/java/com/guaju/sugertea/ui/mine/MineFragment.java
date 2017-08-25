@@ -15,26 +15,28 @@ import com.guaju.sugertea.ui.main.MainActivity;
  * Created by guaju on 2017/8/22.
  */
 
-public class MineFragment extends BaseFragment implements View.OnClickListener {
+public class MineFragment extends BaseFragment implements View.OnClickListener,MineView {
 
     private FrameLayout fl_icon;
+    private MainActivity activity;
+    private MineContract.MinePresenter presenter;
+    private View v;
 
     @Override
     protected void initData() {
+    //本生命周期在view创建完成之后调用
+        presenter=new MinePresenterImpl(this);
+        presenter.hide();
+
 
     }
 
     @Override
     protected View initView(LayoutInflater inflater) {
-        View v = inflater.inflate(R.layout.fragment_mine, null, false);
-        MainActivity activity = (MainActivity) getActivity();
-        ActionBar actionBar = activity.getActionBar();
-        actionBar.hide();
-        int statusBarHeight = activity.statusBarHeight;
-        v.setPadding(0,statusBarHeight,0,0);
+        v = inflater.inflate(R.layout.fragment_mine, null, false);
+        activity = (MainActivity) getActivity();
         fl_icon = (FrameLayout) v.findViewById(R.id.fl_icon);
         fl_icon.setOnClickListener(this);
-
         return v;
     }
 
@@ -50,5 +52,13 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
                 break;
         }
 
+    }
+     //隐藏actionbar的逻辑
+    @Override
+    public void hideActionBar() {
+        ActionBar actionBar = activity.getActionBar();
+        actionBar.hide();
+        int statusBarHeight = activity.statusBarHeight;
+        v.setPadding(0,statusBarHeight,0,0);
     }
 }
