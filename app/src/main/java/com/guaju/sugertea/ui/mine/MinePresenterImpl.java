@@ -5,9 +5,9 @@ package com.guaju.sugertea.ui.mine;
  */
 
 public class MinePresenterImpl implements MineContract.MinePresenter {
-    private MineView  view;
+    private MineContract.MineView view;
 
-    public MinePresenterImpl(MineView view) {
+    public MinePresenterImpl(MineContract.MineView view) {
         this.view = view;
     }
 

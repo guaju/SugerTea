@@ -4,7 +4,6 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.HandlerThread;
 import android.support.annotation.IdRes;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.FragmentActivity;
@@ -40,8 +39,9 @@ public class MainActivity extends FragmentActivity implements MainContract.MainV
     private TextView tv_location;
     private EditText search;
     private FrameLayout fl_msg;
-    HandlerThread mHT;
     public int statusBarHeight;
+    private TextView tv;
+
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -49,6 +49,8 @@ public class MainActivity extends FragmentActivity implements MainContract.MainV
         super.onCreate(savedInstanceState);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         setContentView(R.layout.activity_main);
+
+        tv = (TextView) findViewById(R.id.tv);
         setPresenter(this);
         mainPresenter.mainView.setActionBar(this);
         mainPresenter.mainView.setStatusBar(this);

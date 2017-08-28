@@ -19,7 +19,7 @@ public interface Constant {
     /**
      * 测试
      */
-    String ROOT = "http://www.quanminlebang.com/api100/";
+    String ROOT = "http://www.quanminlebang.com/";
 //    String APP_URL = ROOT + URL_VERSION;
 //    boolean IS_DEBUG = true;
 

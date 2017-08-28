@@ -30,6 +30,7 @@
             android:background="@drawable/mine_circle"
             >
          <ImageView
+          android:id="@+id/iv_avatar"
           android:layout_gravity="center"
           android:layout_width="50dp"
           android:layout_height="50dp"
@@ -37,6 +38,7 @@
               />
         </FrameLayout>
         <TextView
+            android:id="@+id/tv_name"
             android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -49,32 +51,38 @@
 
 </RelativeLayout>
 
-           <com.guaju.sugertea.widget.MineListItemView
+    <com.guaju.sugertea.widget.MineListItemView
+        android:id="@+id/item_dingdan"
                mine:text="订单列表"
                mine:icon="@drawable/ic_mine_order"
                android:layout_height="50dp"
                android:layout_width="wrap_content" />
     <com.guaju.sugertea.widget.MineListItemView
+        android:id="@+id/item_shoucang"
         mine:text="收藏店铺"
         mine:icon="@drawable/ic_mine_collection"
         android:layout_height="50dp"
         android:layout_width="wrap_content" />
     <com.guaju.sugertea.widget.MineListItemView
+        android:id="@+id/item_youhuiquan"
         mine:text="优惠券"
         mine:icon="@drawable/ic_mine_coupon"
         android:layout_height="50dp"
         android:layout_width="wrap_content" />
     <com.guaju.sugertea.widget.MineListItemView
+        android:id="@+id/item_huiyuanka"
         mine:text="会员卡"
         mine:icon="@drawable/ic_mine_vip"
         android:layout_height="50dp"
         android:layout_width="wrap_content" />
     <com.guaju.sugertea.widget.MineListItemView
+        android:id="@+id/item_ruzhu"
         mine:text="商家入驻"
         mine:icon="@drawable/ic_mine_join"
         android:layout_height="50dp"
         android:layout_width="wrap_content" />
     <com.guaju.sugertea.widget.MineListItemView
+        android:id="@+id/item_kefu"
         android:layout_marginTop="12dp"
         mine:text="联系客服"
         mine:icon="@drawable/ic_mine_call"

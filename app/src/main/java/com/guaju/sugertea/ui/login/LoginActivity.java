@@ -63,6 +63,8 @@ public class LoginActivity  extends AppCompatActivity implements LoginContract.L
                 verificationCode = password_input.getText().toString().trim();
                  //校验
 //                loginPresenter.vertifyCode(phonenumber,verificationCode);
+                loginPresenter.vertifyCode(phonenumber,verificationCode);
+                finish();
             }
         });
 
