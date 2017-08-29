@@ -64,6 +64,7 @@ public class LoginActivity  extends AppCompatActivity implements LoginContract.L
             private String verificationCode;
             @Override
             public void onClick(View v) {
+                //再次拿到edittext里面的文字
                 phonenumber = phone_input.getText().toString().trim();
                 verificationCode = password_input.getText().toString().trim();
                  //校验
@@ -123,6 +124,7 @@ public class LoginActivity  extends AppCompatActivity implements LoginContract.L
 
     @Subscribe(threadMode = ThreadMode.MainThread)
     public void finishActivity(FinishEvent event){
+        //销毁当前activity
         finish();
     }
 

@@ -46,6 +46,7 @@ public class MainActivity extends FragmentActivity implements MainContract.MainV
     private FrameLayout fl_msg;
     public int statusBarHeight;
     private TextView tv;
+    //存储点击的那个radiobutton
     private int savedPage = 0;
     private MineFragment mineFragment;
 
@@ -104,6 +105,7 @@ public class MainActivity extends FragmentActivity implements MainContract.MainV
     }
 
     public void switch2MineFragment() {
+        //判断是不是登录状态
         if ((Boolean) SPUtils.getInstance
                 (MainActivity.this, Constant.SPNAME)
                 .getSp("islogin", Boolean.class)) {

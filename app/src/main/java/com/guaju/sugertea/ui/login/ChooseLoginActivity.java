@@ -35,6 +35,7 @@ public class ChooseLoginActivity extends Activity implements View.OnClickListene
         switch(v.getId()){
             case R.id.login_choose_phone:
                 startActivity(new Intent(ChooseLoginActivity.this,LoginActivity.class));
+                //一跳转即销毁
                 finish();
                 break;
             default:

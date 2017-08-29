@@ -121,11 +121,10 @@ public class MineFragment extends BaseFragment implements View.OnClickListener, 
         String huiyuanka = user.getHuiyuanka();//会员卡
         //头像
         if (!TextUtils.isEmpty(avatar)){
-            String url = Constant.ROOT + Constant.IMAGE_AVATAR + avatar;
+            String url = Constant.IMAGE_AVATAR + avatar;
             //TODO 切圆
             //加载图片
             Glide.with(this).load(url).into(iv_avatar);
-
         }
         if (!TextUtils.isEmpty(nickname)){
             tv_name.setText(nickname);
