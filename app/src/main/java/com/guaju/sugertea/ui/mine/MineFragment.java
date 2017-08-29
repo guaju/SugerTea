@@ -14,10 +14,11 @@ import com.bumptech.glide.Glide;
 import com.guaju.sugertea.R;
 import com.guaju.sugertea.base.BaseFragment;
 import com.guaju.sugertea.constant.Constant;
-import com.guaju.sugertea.model.bean.LoginBean;
+import com.guaju.sugertea.model.bean.LoginInfo;
 import com.guaju.sugertea.model.bean.UserInfoBean;
 import com.guaju.sugertea.ui.login.LoginActivity;
 import com.guaju.sugertea.ui.main.MainActivity;
+import com.guaju.sugertea.utils.SPUtils;
 import com.guaju.sugertea.widget.MineListItemView;
 
 import de.greenrobot.event.EventBus;
@@ -46,6 +47,10 @@ public class MineFragment extends BaseFragment implements View.OnClickListener, 
         //本生命周期在view创建完成之后调用
         presenter = new MinePresenterImpl(this);
         presenter.hide();
+        //做回显操作，从缓存的数据中拿东西展示数据
+        presenter.readSavedLoginInfo(SPUtils.getInstance(getActivity(),Constant.SPNAME));
+
+
     }
 
     @Override
@@ -83,9 +88,11 @@ public class MineFragment extends BaseFragment implements View.OnClickListener, 
     }
 
     @Subscribe(threadMode = ThreadMode.MainThread)
-    public void loginEvent(LoginBean bean) {
-        UserInfoBean user = bean.getUser();
+    public void loginEvent(LoginInfo bean) {
+        UserInfoBean user = bean.getObj().getUser();
         showLoginView(user);
+//        presenter.saveLoginStatus(bean);
+
     }
 
     @Subscribe(threadMode = ThreadMode.MainThread)

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_white"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_main" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.35" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="@dimen/base_size4"
+        android:text="享受更多精彩与便捷\n只需一键登录"
+        android:textColor="@color/text_content_title"
+        android:textSize="@dimen/text_size_subhead" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/base_size4"
+        android:layout_marginRight="@dimen/base_size4"
+        android:layout_marginTop="@dimen/button_size_normal"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/login_choose_wx"
+            style="@style/LoginChooseButtonStyle"
+            android:drawableTop="@drawable/ic_login_wx"
+            android:text="微信登录" />
+
+        <Button
+            android:visibility="invisible"
+            android:id="@+id/login_choose_qq"
+            style="@style/LoginChooseButtonStyle"
+            android:drawableTop="@drawable/ic_login_qq"
+            android:text="QQ登录" />
+
+        <Button
+            android:id="@+id/login_choose_phone"
+            style="@style/LoginChooseButtonStyle"
+            android:drawableTop="@drawable/ic_login_phone"
+            android:text="手机登录" />
+    </LinearLayout>
+
+
+</LinearLayout>

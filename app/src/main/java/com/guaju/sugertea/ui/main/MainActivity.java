@@ -2,6 +2,7 @@ package com.guaju.sugertea.ui.main;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
@@ -18,12 +19,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.guaju.sugertea.R;
+import com.guaju.sugertea.constant.Constant;
 import com.guaju.sugertea.httputil.HttpHelper;
 import com.guaju.sugertea.model.MyQQLocationManager;
 import com.guaju.sugertea.model.StatusBarManager;
 import com.guaju.sugertea.model.bean.HomeShopBean;
+import com.guaju.sugertea.ui.login.ChooseLoginActivity;
 import com.guaju.sugertea.ui.mine.MineFragment;
 import com.guaju.sugertea.utils.MeasureUtils;
+import com.guaju.sugertea.utils.SPUtils;
 import com.tencent.map.geolocation.TencentLocationManager;
 import com.tencent.map.geolocation.TencentLocationRequest;
 
@@ -31,7 +35,8 @@ import de.greenrobot.event.EventBus;
 import de.greenrobot.event.Subscribe;
 import de.greenrobot.event.ThreadMode;
 
-public class MainActivity extends FragmentActivity implements MainContract.MainView{
+public class MainActivity extends FragmentActivity implements MainContract.MainView {
+    public static final int RB_MINE = 3;
     private static final String TAG = "MainActivity";
     private MainPresenter mainPresenter;
     private TencentLocationManager locationManager;
@@ -41,6 +46,8 @@ public class MainActivity extends FragmentActivity implements MainContract.MainV
     private FrameLayout fl_msg;
     public int statusBarHeight;
     private TextView tv;
+    private int savedPage = 0;
+    private MineFragment mineFragment;
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -49,6 +56,7 @@ public class MainActivity extends FragmentActivity implements MainContract.MainV
         super.onCreate(savedInstanceState);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         setContentView(R.layout.activity_main);
+
 
         tv = (TextView) findViewById(R.id.tv);
         setPresenter(this);
@@ -63,38 +71,62 @@ public class MainActivity extends FragmentActivity implements MainContract.MainV
     private void test() {
         RadioGroup rg = (RadioGroup) findViewById(R.id.rg);
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
+
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
-               if (checkedId==R.id.rb_mine){
-                   FragmentManager fm = getSupportFragmentManager();
-                   FragmentTransaction ft = fm.beginTransaction();
-                   MineFragment mineFragment = new MineFragment();
-                   ft.add(R.id.fl_content,mineFragment,"mine");
-                   ft.commit();
-               }
+                if ((checkedId == R.id.rb_mine)) {
+                    switch2MineFragment();
+                }
+
 
             }
         });
     }
 
-    private void setPresenter(MainContract.MainView mainView){
-        mainPresenter=new MainPresenter(mainView);
+    private void setPresenter(MainContract.MainView mainView) {
+        mainPresenter = new MainPresenter(mainView);
     }
+
     @Override
     protected void onResume() {
         super.onResume();
+
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        //（处理登录逻辑）切换到之前点击的那个页面
+        if (savedPage == RB_MINE ) {
+            switch2MineFragment();
+        }
+    }
 
-
+    public void switch2MineFragment() {
+        if ((Boolean) SPUtils.getInstance
+                (MainActivity.this, Constant.SPNAME)
+                .getSp("islogin", Boolean.class)) {
+            FragmentManager fm = getSupportFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            if (mineFragment==null){
+            mineFragment = new MineFragment();
+            ft.add(R.id.fl_content, mineFragment, "mine");
+            ft.commit();
+            }
+        } else {
+            startActivity(new Intent(MainActivity.this, ChooseLoginActivity.class));
+            savedPage = RB_MINE;
+        }
+    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         //可在此继续其他操作。
-        if (grantResults[0]!=0&&grantResults[1]!=0&&grantResults[2]!=0){
+        if (grantResults[0] != 0 && grantResults[1] != 0 && grantResults[2] != 0) {
             Toast.makeText(this, "请打开定位权限", Toast.LENGTH_SHORT).show();
-        } else if (grantResults[0]==0&&grantResults[1]==0&&grantResults[2]==0){
+        } else if (grantResults[0] == 0 && grantResults[1] == 0 && grantResults[2] == 0) {
             int error = locationManager.requestLocationUpdates(request, new MyQQLocationManager.QQLocationListener());
         }
 
@@ -121,9 +153,10 @@ public class MainActivity extends FragmentActivity implements MainContract.MainV
 //       //1.在代码中设置背景可用
 //        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00000000")));
     }
-    @Subscribe(threadMode=ThreadMode.MainThread)
-    public void showToast22(MyEvent event){
-        Toast.makeText(this, event.bean.getCode()+"hahaha", Toast.LENGTH_SHORT).show();
+
+    @Subscribe(threadMode = ThreadMode.MainThread)
+    public void showToast22(MyEvent event) {
+        Toast.makeText(this, event.bean.getCode() + "hahaha", Toast.LENGTH_SHORT).show();
 
     }
 
@@ -140,22 +173,22 @@ public class MainActivity extends FragmentActivity implements MainContract.MainV
 
     @Override
     public void setLocationText(String address) {
-        if (address==null&&"".equals(address)){
+        if (address == null && "".equals(address)) {
             tv_location.setText("定位中...");
-        }else{
+        } else {
             tv_location.setText(address);
         }
     }
 
-    public static class MyEvent{
+    public static class MyEvent {
         HomeShopBean bean;
 
         public MyEvent(HomeShopBean bean) {
             this.bean = bean;
         }
 
-        public void setBean(HomeShopBean bean){
-            this.bean=bean;
+        public void setBean(HomeShopBean bean) {
+            this.bean = bean;
         }
 
     }

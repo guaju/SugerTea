@@ -1,13 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="selected_text">#f74461</color>
-    <color name="normal_text">#ff9e9e9e</color>
-    <color name="green">#1100ff00</color>
-    <color name="grey">#888</color>
-    <color name="main_unable">#ff9797</color>
+    <color name="colorPrimary">#f74461</color>
+    <color name="colorPrimaryDark">#e6454a</color>
+    <color name="colorAccent">#ffbd21</color>
+    <color name="background">#f3f3f3</color>
+    <color name="translate">#00000000</color>
+
     <color name="main">#f74461</color>
+    <color name="main_unable">#ff9797</color>
+
+    <color name="gradient_main">@color/colorPrimary</color>
+    <color name="gradient_main_dark">@color/colorPrimaryDark</color>
+    <color name="gradient_main_press">#ce4a4a</color>
+    <color name="gradient_main_dark_press">#b1373a</color>
+    <color name="gradient_main_unable">#ffc7c7c7</color>
+    <color name="gradient_main_unable_dark">#ffc7c7c7</color>
+
+    <color name="toolbar_bg_end">@color/colorPrimary</color>
+    <color name="toolbar_bg_start">@color/colorPrimaryDark</color>
+
+    <color name="text_white">#ffffff</color>
+    <color name="text_white_second">#99ffffff</color>
+    <color name="text_grey_tab">#8e8e8e</color>
+
+    <color name="button_get_vc">#76ffffff</color>
+    <color name="button_get_vc_press">#56ffffff</color>
+
+    <color name="ripple_color">#30000000</color>
+    <color name="text_toolbar_title">#ff010101</color>
+    <color name="text_toolbar_text">#ff8e8e8e</color>
+    <color name="text_content_title">#ff333333</color>
+    <color name="text_content_text">#ff636363</color>
     <color name="text_content_secondary">#ff9e9e9e</color>
+    <color name="text_content_hint">#ffc8c7cd</color>
+    <color name="text_gold">#ff947038</color>
+
+    <color name="divider">#ffe7e7e7</color>
+
+    <color name="pinkish_orange">#fffe753f</color>
+    <color name="barbie_pink">#ffff3e90</color>
+    <color name="yellow_orange">#ffffb400</color>
+    <color name="red_pink">#ffef4459</color>
+    <color name="deep_sky_blue">#ff0084ff</color>
+    <color name="green_apple">#ff6ee81d</color>
+    <color name="sail_text_bg_start">#ffff5c41</color>
+    <color name="sail_text_bg_end">#fffca03c</color>
+    <color name="green">#ff2fcab1</color>
+    <color name="blue">#ff54d5ff</color>
+
+    <color name="map_radius_fill">#55ff5c5c</color>
+    <color name="map_radius_stroke">@color/text_white</color>
+
+    <color name="toast_color">#8a000000</color>
+    <color name="selected_text">#4f00</color>
+    <color name="normal_text">#c6c6c6</color>
+    <color name="grey">#c6c6c6</color>
+
 </resources>

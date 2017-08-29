@@ -43,6 +43,8 @@ public class LoginPresenterImpl2 implements LoginContract.LoginPresenter {
     @Override
     public void vertifyCode(String phonenumber, String code) {
          HttpHelper.getInstance().login(phonenumber,code);
+
+
     }
 
     @Override

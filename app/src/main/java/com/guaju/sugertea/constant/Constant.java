@@ -6,6 +6,9 @@ package com.guaju.sugertea.constant;
 
 public interface Constant {
 
+
+    String SPNAME="config";
+
     String WX_AppID = "wx2ab30dbdea83497b";
     String WX_AppSecret = "3e07746e20905304c76e9285b986de02";
     String QQ_ID = "1106217427";

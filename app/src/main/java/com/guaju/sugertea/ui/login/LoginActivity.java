@@ -13,6 +13,9 @@ import android.widget.Toast;
 import com.guaju.sugertea.R;
 
 import cn.smssdk.EventHandler;
+import de.greenrobot.event.EventBus;
+import de.greenrobot.event.Subscribe;
+import de.greenrobot.event.ThreadMode;
 
 /**
  * Created by guaju on 2017/8/23.
@@ -31,6 +34,7 @@ public class LoginActivity  extends AppCompatActivity implements LoginContract.L
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        EventBus.getDefault().register(this);
         loginPresenter=new LoginPresenterImpl2(this);
         // 如果希望在读取通信录的时候提示用户，可以添加下面的代码，并且必须在其他代码调用之前，否则不起作用；如果没这个需求，可以不加这行代码
         //SMSSDK.setAskPermisionOnReadContact(boolShowInDialog) ；
@@ -60,11 +64,14 @@ public class LoginActivity  extends AppCompatActivity implements LoginContract.L
             private String verificationCode;
             @Override
             public void onClick(View v) {
+                phonenumber = phone_input.getText().toString().trim();
                 verificationCode = password_input.getText().toString().trim();
                  //校验
 //                loginPresenter.vertifyCode(phonenumber,verificationCode);
                 loginPresenter.vertifyCode(phonenumber,verificationCode);
-                finish();
+
+                //调回到MainActivity
+
             }
         });
 
@@ -72,6 +79,7 @@ public class LoginActivity  extends AppCompatActivity implements LoginContract.L
 
     protected void onDestroy() {
         super.onDestroy();
+        EventBus.getDefault().unregister(this);
 //        loginPresenter.unRegistSendCodeListener();
 
     }
@@ -113,4 +121,13 @@ public class LoginActivity  extends AppCompatActivity implements LoginContract.L
 
     }
 
+    @Subscribe(threadMode = ThreadMode.MainThread)
+    public void finishActivity(FinishEvent event){
+        finish();
+    }
+
+    public static class FinishEvent{
+      public  String  flag="finish";
+
+    }
 }
