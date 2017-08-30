@@ -3,6 +3,7 @@ package com.guaju.sugertea.api;
 import android.support.annotation.NonNull;
 
 import com.guaju.sugertea.constant.Constant;
+import com.guaju.sugertea.model.bean.ADBean;
 import com.guaju.sugertea.model.bean.BaseBean;
 import com.guaju.sugertea.model.bean.HomeShopBean;
 import com.guaju.sugertea.model.bean.LoginBean;
@@ -102,7 +103,11 @@ public interface API {
             @NonNull @Query("sign") String sign,
             @NonNull @Query("leixing") String type
     );
-
+    @GET(Constant.USER)
+    Observable<BaseBean<ADBean>> getAD(
+         @Query("bs") String bs,
+         @Query("zuobiao") String zuobiao
+    );
 
 
 }

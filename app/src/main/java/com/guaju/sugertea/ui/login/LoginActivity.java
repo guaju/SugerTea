@@ -127,7 +127,10 @@ public class LoginActivity  extends AppCompatActivity implements LoginContract.L
         //销毁当前activity
         finish();
     }
-
+    @Subscribe(threadMode = ThreadMode.MainThread)
+    public void loginEvent(String info) {
+        Toast.makeText(this, info, Toast.LENGTH_SHORT).show();
+    }
     public static class FinishEvent{
       public  String  flag="finish";
 

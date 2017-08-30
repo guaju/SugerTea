@@ -3,6 +3,7 @@ package com.guaju.sugertea.ui.main;
 import android.app.Activity;
 
 import com.guaju.sugertea.base.BasePresenter;
+import com.tencent.map.geolocation.TencentLocation;
 
 /**
  * Created by guaju on 2017/8/16.
@@ -16,6 +17,7 @@ public interface MainContract {
         void setLocationText(String address);
     }
      interface Presenter extends BasePresenter{
-        void setLocation();
+         void getLocation(TencentLocation location);
+         void cancleLocation();
      }
 }

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.handmark.pulltorefresh.library.PullToRefreshScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.daimajia.slider.library.SliderLayout
+        android:id="@+id/slider"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
+    <com.daimajia.slider.library.Indicators.PagerIndicator
+        android:id="@+id/indicator"
+        app:selected_color="#f00"
+        app:unselected_color="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        />
+
+
+
+
+
+
+
+
+</LinearLayout>
+
+
+
+
+
+
+</com.handmark.pulltorefresh.library.PullToRefreshScrollView>

@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/guaju/Desktop/SugerTea/pulltorefresh/build/intermediates/res/merged/androidTest/debug/layout/pull_to_refresh_header_vertical.xml",
+        "source": "/Users/guaju/Desktop/SugerTea/pulltorefresh/build/intermediates/bundles/debug/res/layout/pull_to_refresh_header_vertical.xml"
+    },
+    {
+        "merged": "/Users/guaju/Desktop/SugerTea/pulltorefresh/build/intermediates/res/merged/androidTest/debug/layout/pull_to_refresh_header_horizontal.xml",
+        "source": "/Users/guaju/Desktop/SugerTea/pulltorefresh/build/intermediates/bundles/debug/res/layout/pull_to_refresh_header_horizontal.xml"
+    }
+]

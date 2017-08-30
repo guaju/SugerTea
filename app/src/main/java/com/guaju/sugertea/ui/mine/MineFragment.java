@@ -95,9 +95,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener, 
 
     }
 
-    @Subscribe(threadMode = ThreadMode.MainThread)
-    public void loginEvent(String info) {
-    }
+
 
 
     //隐藏actionbar的逻辑
@@ -105,8 +103,8 @@ public class MineFragment extends BaseFragment implements View.OnClickListener, 
     public void hideActionBar() {
         ActionBar actionBar = activity.getActionBar();
         actionBar.hide();
-        int statusBarHeight = activity.statusBarHeight;
-        v.setPadding(0, statusBarHeight, 0, 0);
+//        int statusBarHeight = activity.statusBarHeight;
+//        v.setPadding(0, statusBarHeight, 0, 0);
     }
 
     @Override

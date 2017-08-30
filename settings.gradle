@@ -1,1 +1,2 @@
-include ':app', ':handlerthread'
+include ':app'
+include ':pulltorefresh'

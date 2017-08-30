@@ -1,35 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:background="#0000"
-    android:layout_height="match_parent">
+    android:layout_marginRight="20dp"
+    android:layout_height="wrap_content">
     <TextView
+        android:layout_alignParentLeft="true"
         android:layout_margin="10dp"
         android:id="@+id/tv_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
         android:textSize="15sp"
+        android:maxLength="4"
         android:text="定位中..."
         android:textColor="#fff"
         android:background="@drawable/bg_home_location"
         />
     <EditText
-        android:layout_weight="1"
+        android:layout_centerInParent="true"
         android:textColorHint="#c6c6c6"
         android:textSize="15sp"
         android:layout_marginTop="10dp"
         android:id="@+id/search"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
+        android:maxLength="20"
         android:hint="搜索感兴趣的服务和商家"
         android:background="@drawable/bg_home_search_white"
         />
     <FrameLayout
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
         android:id="@+id/fl_msg"
-        android:layout_margin="10dp"
+        android:layout_marginRight="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_home_location"
@@ -43,4 +49,4 @@
          />
     </FrameLayout>
 
-</LinearLayout>
+</RelativeLayout>

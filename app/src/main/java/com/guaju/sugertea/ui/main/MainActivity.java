@@ -12,6 +12,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.RadioGroup;
@@ -20,14 +21,17 @@ import android.widget.Toast;
 
 import com.guaju.sugertea.R;
 import com.guaju.sugertea.constant.Constant;
+import com.guaju.sugertea.factory.FragmentFactory;
 import com.guaju.sugertea.httputil.HttpHelper;
 import com.guaju.sugertea.model.MyQQLocationManager;
 import com.guaju.sugertea.model.StatusBarManager;
 import com.guaju.sugertea.model.bean.HomeShopBean;
+import com.guaju.sugertea.ui.home.HomeFragment;
 import com.guaju.sugertea.ui.login.ChooseLoginActivity;
 import com.guaju.sugertea.ui.mine.MineFragment;
 import com.guaju.sugertea.utils.MeasureUtils;
 import com.guaju.sugertea.utils.SPUtils;
+import com.tencent.map.geolocation.TencentLocation;
 import com.tencent.map.geolocation.TencentLocationManager;
 import com.tencent.map.geolocation.TencentLocationRequest;
 
@@ -49,26 +53,32 @@ public class MainActivity extends FragmentActivity implements MainContract.MainV
     //存储点击的那个radiobutton
     private int savedPage = 0;
     private MineFragment mineFragment;
+    private HomeFragment homeFragment;
+    private FragmentManager fm;
+    public TencentLocation tencentLocation;
+    private ActionBar actionBar;
+    private View customActionbar;
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        getWindow().requestFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
         setContentView(R.layout.activity_main);
+        fm = getSupportFragmentManager();
 
-
-        tv = (TextView) findViewById(R.id.tv);
         setPresenter(this);
         mainPresenter.mainView.setActionBar(this);
-        mainPresenter.mainView.setStatusBar(this);
+//        mainPresenter.mainView.setStatusBar(this);
+        mainPresenter.getLocation(tencentLocation);
         HttpHelper.getInstance().getShopList("104cca5fad614b53e494e5198f4cdb47", "116.125584,40.232219");
         EventBus.getDefault().register(this);
         test();
+        switch2Fragment("home");
 
     }
-
+//切换fragment逻辑
     private void test() {
         RadioGroup rg = (RadioGroup) findViewById(R.id.rg);
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -77,7 +87,10 @@ public class MainActivity extends FragmentActivity implements MainContract.MainV
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                 if ((checkedId == R.id.rb_mine)) {
-                    switch2MineFragment();
+                    switch2Fragment("mine");
+                }
+                if ((checkedId == R.id.rb_home)) {
+                    switch2Fragment("home");
                 }
 
 
@@ -100,39 +113,74 @@ public class MainActivity extends FragmentActivity implements MainContract.MainV
         super.onRestart();
         //（处理登录逻辑）切换到之前点击的那个页面
         if (savedPage == RB_MINE ) {
-            switch2MineFragment();
+            switch2Fragment("mine");
         }
     }
 
-    public void switch2MineFragment() {
+    //重置fragment的方法
+    void resetFragment(){
+        FragmentTransaction ft = fm.beginTransaction();
+        if (homeFragment!=null){
+            ft.hide(homeFragment);
+        }
+        if (mineFragment!=null){
+            ft.hide(mineFragment);
+        }
+        ft.commit();
+    }
+
+
+
+    public void switch2Fragment(String name) {
+
+        resetFragment();
         //判断是不是登录状态
         if ((Boolean) SPUtils.getInstance
                 (MainActivity.this, Constant.SPNAME)
                 .getSp("islogin", Boolean.class)) {
-            FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
-            if (mineFragment==null){
-            mineFragment = new MineFragment();
-            ft.add(R.id.fl_content, mineFragment, "mine");
-            ft.commit();
+            if ("mine".equals(name)) {
+                if (mineFragment == null) {
+                    mineFragment = (MineFragment) FragmentFactory.getInstance().createMine();
+                    ft.add(R.id.fl_content, mineFragment, "mine");
+                }
+                else{
+                    ft.show(mineFragment);
+                }
+                ft.commit();
+                actionBar.hide();
             }
-        } else {
-            startActivity(new Intent(MainActivity.this, ChooseLoginActivity.class));
-            savedPage = RB_MINE;
-        }
+            if ("home".equals(name)) {
+                    if (homeFragment == null) {
+                        homeFragment = (HomeFragment) FragmentFactory.getInstance().createHome();
+                        ft.add(R.id.fl_content, homeFragment, name);
+
+                    }else{
+                        ft.show(homeFragment);
+                    }
+                ft.commit();
+                //在回到首页的时候显示actionbar
+                actionBar.show();
+                } }
+
+             else {
+                startActivity(new Intent(MainActivity.this, ChooseLoginActivity.class));
+                savedPage = RB_MINE;
+            }
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        //可在此继续其他操作。
-        if (grantResults[0] != 0 && grantResults[1] != 0 && grantResults[2] != 0) {
-            Toast.makeText(this, "请打开定位权限", Toast.LENGTH_SHORT).show();
-        } else if (grantResults[0] == 0 && grantResults[1] == 0 && grantResults[2] == 0) {
-            int error = locationManager.requestLocationUpdates(request, new MyQQLocationManager.QQLocationListener());
-        }
+        @Override
+        public void onRequestPermissionsResult ( int requestCode, String[] permissions,
+        int[] grantResults){
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+            //可在此继续其他操作。
+            if (grantResults[0] != 0 && grantResults[1] != 0 && grantResults[2] != 0) {
+                Toast.makeText(this, "请打开定位权限", Toast.LENGTH_SHORT).show();
+            } else if (grantResults[0] == 0 && grantResults[1] == 0 && grantResults[2] == 0) {
+                int error = locationManager.requestLocationUpdates(request, new MyQQLocationManager.QQLocationListener());
+            }
 
-    }
+        }
 
     @Override
     protected void onStop() {
@@ -142,14 +190,14 @@ public class MainActivity extends FragmentActivity implements MainContract.MainV
 
     @Override
     public void setActionBar(Activity act) {
-        ActionBar actionBar = getActionBar();
+        actionBar = getActionBar();
         //让actionbar使用自定义的布局样式
         actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         actionBar.setCustomView(R.layout.head);
-        View view = LayoutInflater.from(this).inflate(R.layout.head, null, false);
-        tv_location = (TextView) view.findViewById(R.id.tv_location);
-        search = (EditText) view.findViewById(R.id.search);
-        fl_msg = (FrameLayout) view.findViewById(R.id.fl_msg);
+        customActionbar = LayoutInflater.from(this).inflate(R.layout.head, null, true);
+        tv_location = (TextView) customActionbar.findViewById(R.id.tv_location);
+        search = (EditText) customActionbar.findViewById(R.id.search);
+        fl_msg = (FrameLayout) customActionbar.findViewById(R.id.fl_msg);
 
 
 //       //1.在代码中设置背景可用
@@ -176,10 +224,12 @@ public class MainActivity extends FragmentActivity implements MainContract.MainV
     @Override
     public void setLocationText(String address) {
         if (address == null && "".equals(address)) {
-            tv_location.setText("定位中...");
+            tv_location.setText("");
         } else {
             tv_location.setText(address);
         }
+        actionBar.setCustomView(customActionbar);
+
     }
 
     public static class MyEvent {
