@@ -1,0 +1,87 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/guaju/Desktop/SugerTea/DaoExample/src/main/AndroidManifest.xml:2:1-21:12
+	package
+		ADDED from /Users/guaju/Desktop/SugerTea/DaoExample/src/main/AndroidManifest.xml:3:5-46
+		INJECTED from /Users/guaju/Desktop/SugerTea/DaoExample/src/main/AndroidManifest.xml
+		INJECTED from /Users/guaju/Desktop/SugerTea/DaoExample/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/guaju/Desktop/SugerTea/DaoExample/src/main/AndroidManifest.xml
+		INJECTED from /Users/guaju/Desktop/SugerTea/DaoExample/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/guaju/Desktop/SugerTea/DaoExample/src/main/AndroidManifest.xml:2:11-69
+	android:versionCode
+		INJECTED from /Users/guaju/Desktop/SugerTea/DaoExample/src/main/AndroidManifest.xml
+		INJECTED from /Users/guaju/Desktop/SugerTea/DaoExample/src/main/AndroidManifest.xml
+application
+ADDED from /Users/guaju/Desktop/SugerTea/DaoExample/src/main/AndroidManifest.xml:5:5-19:19
+MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/guaju/.android/build-cache/9e46061d3563bcebc70c3d5acfd857bf079d2602/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-v4:25.3.1] /Users/guaju/.android/build-cache/d5ad29a8e4b17a78b3e33b8bfeb99f963b518f3d/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:25.3.1] /Users/guaju/.android/build-cache/2bfed0494520cd6fa7fb48a31e91c25969621b35/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:25.3.1] /Users/guaju/.android/build-cache/c477e23831a8db80e14153634dc148d4957d24f6/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:25.3.1] /Users/guaju/.android/build-cache/25fb323ce181501cc624ddb8e2162fee6a348b45/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/guaju/.android/build-cache/385148e04f3e161ae3f383d8a38deafadd572262/output/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/guaju/.android/build-cache/751d6ba6b55cbdbadb3c7b41e6ff78baabf94719/output/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-core-ui:25.3.1] /Users/guaju/.android/build-cache/73dd3a1f9a9b4b34a69064bcb2e771c790ab5e87/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:25.3.1] /Users/guaju/.android/build-cache/64e611c13975e8293d4dd6ad1c64323fa2a1edfe/output/AndroidManifest.xml:29:5-20
+	android:label
+		ADDED from /Users/guaju/Desktop/SugerTea/DaoExample/src/main/AndroidManifest.xml:9:9-41
+	android:supportsRtl
+		ADDED from /Users/guaju/Desktop/SugerTea/DaoExample/src/main/AndroidManifest.xml:10:9-35
+	android:allowBackup
+		ADDED from /Users/guaju/Desktop/SugerTea/DaoExample/src/main/AndroidManifest.xml:7:9-35
+	android:icon
+		ADDED from /Users/guaju/Desktop/SugerTea/DaoExample/src/main/AndroidManifest.xml:8:9-43
+	android:theme
+		ADDED from /Users/guaju/Desktop/SugerTea/DaoExample/src/main/AndroidManifest.xml:11:9-40
+	android:name
+		ADDED from /Users/guaju/Desktop/SugerTea/DaoExample/src/main/AndroidManifest.xml:6:9-28
+activity#org.greenrobot.greendao.example.NoteActivity
+ADDED from /Users/guaju/Desktop/SugerTea/DaoExample/src/main/AndroidManifest.xml:12:9-18:20
+	android:name
+		ADDED from /Users/guaju/Desktop/SugerTea/DaoExample/src/main/AndroidManifest.xml:12:19-47
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /Users/guaju/Desktop/SugerTea/DaoExample/src/main/AndroidManifest.xml:13:13-17:29
+action#android.intent.action.MAIN
+ADDED from /Users/guaju/Desktop/SugerTea/DaoExample/src/main/AndroidManifest.xml:14:17-69
+	android:name
+		ADDED from /Users/guaju/Desktop/SugerTea/DaoExample/src/main/AndroidManifest.xml:14:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/guaju/Desktop/SugerTea/DaoExample/src/main/AndroidManifest.xml:16:17-77
+	android:name
+		ADDED from /Users/guaju/Desktop/SugerTea/DaoExample/src/main/AndroidManifest.xml:16:27-74
+uses-sdk
+INJECTED from /Users/guaju/Desktop/SugerTea/DaoExample/src/main/AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/guaju/.android/build-cache/9e46061d3563bcebc70c3d5acfd857bf079d2602/output/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:support-v4:25.3.1] /Users/guaju/.android/build-cache/d5ad29a8e4b17a78b3e33b8bfeb99f963b518f3d/output/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.3.1] /Users/guaju/.android/build-cache/2bfed0494520cd6fa7fb48a31e91c25969621b35/output/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.3.1] /Users/guaju/.android/build-cache/c477e23831a8db80e14153634dc148d4957d24f6/output/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-utils:25.3.1] /Users/guaju/.android/build-cache/25fb323ce181501cc624ddb8e2162fee6a348b45/output/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/guaju/.android/build-cache/385148e04f3e161ae3f383d8a38deafadd572262/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/guaju/.android/build-cache/751d6ba6b55cbdbadb3c7b41e6ff78baabf94719/output/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:25.3.1] /Users/guaju/.android/build-cache/a7acd528c3988bc4f3c83e228412c4bbcb68f384/output/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-core-ui:25.3.1] /Users/guaju/.android/build-cache/73dd3a1f9a9b4b34a69064bcb2e771c790ab5e87/output/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:25.3.1] /Users/guaju/.android/build-cache/64e611c13975e8293d4dd6ad1c64323fa2a1edfe/output/AndroidManifest.xml:21:5-23:58
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:25.3.1] /Users/guaju/.android/build-cache/9e46061d3563bcebc70c3d5acfd857bf079d2602/output/AndroidManifest.xml:23:9-75
+	android:targetSdkVersion
+		INJECTED from /Users/guaju/Desktop/SugerTea/DaoExample/src/main/AndroidManifest.xml
+		INJECTED from /Users/guaju/Desktop/SugerTea/DaoExample/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/guaju/Desktop/SugerTea/DaoExample/src/main/AndroidManifest.xml
+		INJECTED from /Users/guaju/Desktop/SugerTea/DaoExample/src/main/AndroidManifest.xml
+meta-data#android.support.VERSION
+ADDED from [com.android.support:appcompat-v7:25.3.1] /Users/guaju/.android/build-cache/9e46061d3563bcebc70c3d5acfd857bf079d2602/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-v4:25.3.1] /Users/guaju/.android/build-cache/d5ad29a8e4b17a78b3e33b8bfeb99f963b518f3d/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-fragment:25.3.1] /Users/guaju/.android/build-cache/2bfed0494520cd6fa7fb48a31e91c25969621b35/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.1] /Users/guaju/.android/build-cache/c477e23831a8db80e14153634dc148d4957d24f6/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.1] /Users/guaju/.android/build-cache/25fb323ce181501cc624ddb8e2162fee6a348b45/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/guaju/.android/build-cache/385148e04f3e161ae3f383d8a38deafadd572262/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/guaju/.android/build-cache/751d6ba6b55cbdbadb3c7b41e6ff78baabf94719/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:recyclerview-v7:25.3.1] /Users/guaju/.android/build-cache/a7acd528c3988bc4f3c83e228412c4bbcb68f384/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-core-ui:25.3.1] /Users/guaju/.android/build-cache/73dd3a1f9a9b4b34a69064bcb2e771c790ab5e87/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-compat:25.3.1] /Users/guaju/.android/build-cache/64e611c13975e8293d4dd6ad1c64323fa2a1edfe/output/AndroidManifest.xml:25:5-27:34
+	android:value
+		ADDED from [com.android.support:appcompat-v7:25.3.1] /Users/guaju/.android/build-cache/9e46061d3563bcebc70c3d5acfd857bf079d2602/output/AndroidManifest.xml:27:9-31
+	android:name
+		ADDED from [com.android.support:appcompat-v7:25.3.1] /Users/guaju/.android/build-cache/9e46061d3563bcebc70c3d5acfd857bf079d2602/output/AndroidManifest.xml:26:9-47

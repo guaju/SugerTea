@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "/Users/guaju/Desktop/SugerTea/DaoExample/build/intermediates/res/merged/debug/layout-v11/notification_media_cancel_action.xml",
+        "source": "/Users/guaju/.android/build-cache/9e46061d3563bcebc70c3d5acfd857bf079d2602/output/res/layout-v11/notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "/Users/guaju/Desktop/SugerTea/DaoExample/build/intermediates/res/merged/debug/layout-v11/notification_template_big_media.xml",
+        "source": "/Users/guaju/.android/build-cache/9e46061d3563bcebc70c3d5acfd857bf079d2602/output/res/layout-v11/notification_template_big_media.xml"
+    },
+    {
+        "merged": "/Users/guaju/Desktop/SugerTea/DaoExample/build/intermediates/res/merged/debug/layout-v11/notification_media_action.xml",
+        "source": "/Users/guaju/.android/build-cache/9e46061d3563bcebc70c3d5acfd857bf079d2602/output/res/layout-v11/notification_media_action.xml"
+    },
+    {
+        "merged": "/Users/guaju/Desktop/SugerTea/DaoExample/build/intermediates/res/merged/debug/layout-v11/notification_template_big_media_narrow_custom.xml",
+        "source": "/Users/guaju/.android/build-cache/9e46061d3563bcebc70c3d5acfd857bf079d2602/output/res/layout-v11/notification_template_big_media_narrow_custom.xml"
+    },
+    {
+        "merged": "/Users/guaju/Desktop/SugerTea/DaoExample/build/intermediates/res/merged/debug/layout-v11/notification_template_big_media_custom.xml",
+        "source": "/Users/guaju/.android/build-cache/9e46061d3563bcebc70c3d5acfd857bf079d2602/output/res/layout-v11/notification_template_big_media_custom.xml"
+    },
+    {
+        "merged": "/Users/guaju/Desktop/SugerTea/DaoExample/build/intermediates/res/merged/debug/layout-v11/notification_template_big_media_narrow.xml",
+        "source": "/Users/guaju/.android/build-cache/9e46061d3563bcebc70c3d5acfd857bf079d2602/output/res/layout-v11/notification_template_big_media_narrow.xml"
+    }
+]

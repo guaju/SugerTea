@@ -2,9 +2,13 @@ package com.guaju.sugertea.ui.mine;
 
 import android.text.TextUtils;
 
+import com.guaju.sugertea.app.App;
 import com.guaju.sugertea.constant.Constant;
-import com.guaju.sugertea.httputil.HttpHelper;
+import com.guaju.sugertea.dao.bean.DaoSession;
+import com.guaju.sugertea.dao.bean.UserInfo;
+import com.guaju.sugertea.dao.bean.UserInfoDao;
 import com.guaju.sugertea.model.bean.LoginInfo;
+import com.guaju.sugertea.model.bean.UserInfoBean;
 import com.guaju.sugertea.utils.SPUtils;
 
 /**
@@ -26,13 +30,17 @@ public class MinePresenterImpl implements MineContract.MinePresenter {
 
     @Override
     public void readSavedLoginInfo(SPUtils spUtils) {
-         String phonenum = (String) spUtils.getSp("phonenum", String.class);
-         String code = (String) spUtils.getSp("logincode", String.class);
-         if ((!TextUtils.isEmpty(phonenum))&&(!TextUtils.isEmpty(code))){
-            HttpHelper.getInstance().login(phonenum,code);
-         }
+        //拿到最近登录的账号
+        String phonenum = (String) spUtils.getSp("phonenum", String.class);
+        //从数据库中拿缓存数据
+        DaoSession daoSession = App.getDaoSession();
+        UserInfoDao userInfoDao = daoSession.getUserInfoDao();
+        if (!TextUtils.isEmpty(phonenum)) {
+            //拿到数据库中的数据
+            UserInfo load = userInfoDao.load(phonenum);
 
-
+            view.showLoginView(load);
+        }
 
     }
 

@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "/Users/guaju/Desktop/SugerTea/DaoExample/build/intermediates/res/merged/debug/anim/abc_popup_enter.xml",
+        "source": "/Users/guaju/.android/build-cache/9e46061d3563bcebc70c3d5acfd857bf079d2602/output/res/anim/abc_popup_enter.xml"
+    },
+    {
+        "merged": "/Users/guaju/Desktop/SugerTea/DaoExample/build/intermediates/res/merged/debug/anim/abc_shrink_fade_out_from_bottom.xml",
+        "source": "/Users/guaju/.android/build-cache/9e46061d3563bcebc70c3d5acfd857bf079d2602/output/res/anim/abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "/Users/guaju/Desktop/SugerTea/DaoExample/build/intermediates/res/merged/debug/anim/abc_fade_in.xml",
+        "source": "/Users/guaju/.android/build-cache/9e46061d3563bcebc70c3d5acfd857bf079d2602/output/res/anim/abc_fade_in.xml"
+    },
+    {
+        "merged": "/Users/guaju/Desktop/SugerTea/DaoExample/build/intermediates/res/merged/debug/anim/abc_grow_fade_in_from_bottom.xml",
+        "source": "/Users/guaju/.android/build-cache/9e46061d3563bcebc70c3d5acfd857bf079d2602/output/res/anim/abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "/Users/guaju/Desktop/SugerTea/DaoExample/build/intermediates/res/merged/debug/anim/abc_slide_out_top.xml",
+        "source": "/Users/guaju/.android/build-cache/9e46061d3563bcebc70c3d5acfd857bf079d2602/output/res/anim/abc_slide_out_top.xml"
+    },
+    {
+        "merged": "/Users/guaju/Desktop/SugerTea/DaoExample/build/intermediates/res/merged/debug/anim/abc_popup_exit.xml",
+        "source": "/Users/guaju/.android/build-cache/9e46061d3563bcebc70c3d5acfd857bf079d2602/output/res/anim/abc_popup_exit.xml"
+    },
+    {
+        "merged": "/Users/guaju/Desktop/SugerTea/DaoExample/build/intermediates/res/merged/debug/anim/abc_slide_in_top.xml",
+        "source": "/Users/guaju/.android/build-cache/9e46061d3563bcebc70c3d5acfd857bf079d2602/output/res/anim/abc_slide_in_top.xml"
+    },
+    {
+        "merged": "/Users/guaju/Desktop/SugerTea/DaoExample/build/intermediates/res/merged/debug/anim/abc_slide_out_bottom.xml",
+        "source": "/Users/guaju/.android/build-cache/9e46061d3563bcebc70c3d5acfd857bf079d2602/output/res/anim/abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "/Users/guaju/Desktop/SugerTea/DaoExample/build/intermediates/res/merged/debug/anim/abc_fade_out.xml",
+        "source": "/Users/guaju/.android/build-cache/9e46061d3563bcebc70c3d5acfd857bf079d2602/output/res/anim/abc_fade_out.xml"
+    },
+    {
+        "merged": "/Users/guaju/Desktop/SugerTea/DaoExample/build/intermediates/res/merged/debug/anim/abc_slide_in_bottom.xml",
+        "source": "/Users/guaju/.android/build-cache/9e46061d3563bcebc70c3d5acfd857bf079d2602/output/res/anim/abc_slide_in_bottom.xml"
+    }
+]

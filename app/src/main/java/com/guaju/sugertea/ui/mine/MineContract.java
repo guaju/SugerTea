@@ -1,7 +1,7 @@
 package com.guaju.sugertea.ui.mine;
 
+import com.guaju.sugertea.dao.bean.UserInfo;
 import com.guaju.sugertea.model.bean.LoginInfo;
-import com.guaju.sugertea.model.bean.UserInfoBean;
 import com.guaju.sugertea.utils.SPUtils;
 
 /**
@@ -12,7 +12,7 @@ public interface MineContract {
 
     public interface MineView {
         void  hideActionBar();
-        void  showLoginView(UserInfoBean user);
+        void  showLoginView(UserInfo user);
         void showLoginError();
     }
     interface MinePresenter{

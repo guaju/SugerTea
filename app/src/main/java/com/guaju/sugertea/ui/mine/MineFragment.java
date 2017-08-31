@@ -14,8 +14,7 @@ import com.bumptech.glide.Glide;
 import com.guaju.sugertea.R;
 import com.guaju.sugertea.base.BaseFragment;
 import com.guaju.sugertea.constant.Constant;
-import com.guaju.sugertea.model.bean.LoginInfo;
-import com.guaju.sugertea.model.bean.UserInfoBean;
+import com.guaju.sugertea.dao.bean.UserInfo;
 import com.guaju.sugertea.ui.login.LoginActivity;
 import com.guaju.sugertea.ui.main.MainActivity;
 import com.guaju.sugertea.utils.SPUtils;
@@ -77,7 +76,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener, 
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.fl_icon:
-                if ("未登录".equals("未登录")) {
+                if ("未登录".equals(tv_name.getText().toString().trim())) {
                     startActivity(new Intent(getActivity(), LoginActivity.class));
                 }
                 break;
@@ -88,8 +87,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener, 
     }
 
     @Subscribe(threadMode = ThreadMode.MainThread)
-    public void loginEvent(LoginInfo bean) {
-        UserInfoBean user = bean.getObj().getUser();
+    public void loginEvent(UserInfo user) {
         showLoginView(user);
 //        presenter.saveLoginStatus(bean);
 
@@ -108,15 +106,15 @@ public class MineFragment extends BaseFragment implements View.OnClickListener, 
     }
 
     @Override
-    public void showLoginView(UserInfoBean user) {
-        String avatar = user.getAvatar();//头像
+    public void showLoginView(UserInfo user) {
+        String avatar = user.getIcon();//头像
         String nickname = user.getNickname();//昵称
-        String phone = user.getPhone();//电话号码
-        String sex = user.getSex();//拿到性别
-        String xiadanshu = user.getXiadanshu();//订单数量
-        String shoucangshanghu = user.getShoucangshanghu();//收藏店铺
-        String youhuiquan = user.getYouhuiquan();//优惠券
-        String huiyuanka = user.getHuiyuanka();//会员卡
+        String phone = user.getPhoneNum();//电话号码
+//        String sex = user.getSex();//拿到性别
+        String xiadanshu = user.getDingdanNum();//订单数量
+        String shoucangshanghu = user.getShoucangNum();//收藏店铺
+        String youhuiquan = user.getYouhuquanNum();//优惠券
+        String huiyuanka = user.getHuiyuankaNum();//会员卡
         //头像
         if (!TextUtils.isEmpty(avatar)){
             String url = Constant.IMAGE_AVATAR + avatar;
@@ -134,10 +132,10 @@ public class MineFragment extends BaseFragment implements View.OnClickListener, 
             }
 
         }
-        if (!TextUtils.isEmpty(sex)){
-            //TODO  跳转
-
-        }
+//        if (!TextUtils.isEmpty(sex)){
+//            //TODO  跳转
+//
+//        }
         if (!TextUtils.isEmpty(xiadanshu)){
              item_dingdan.setNum(xiadanshu);
 

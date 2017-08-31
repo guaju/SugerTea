@@ -6,11 +6,14 @@ import com.guaju.sugertea.api.API;
 import com.guaju.sugertea.app.App;
 import com.guaju.sugertea.constant.BSConstant;
 import com.guaju.sugertea.constant.Constant;
+import com.guaju.sugertea.dao.bean.DaoSession;
+import com.guaju.sugertea.dao.bean.UserInfo;
 import com.guaju.sugertea.model.bean.ADBean;
 import com.guaju.sugertea.model.bean.BaseBean;
 import com.guaju.sugertea.model.bean.HomeShopBean;
 import com.guaju.sugertea.model.bean.LoginBean;
 import com.guaju.sugertea.model.bean.LoginInfo;
+import com.guaju.sugertea.model.bean.UserInfoBean;
 import com.guaju.sugertea.ui.home.HomeFragment;
 import com.guaju.sugertea.ui.login.LoginActivity;
 import com.guaju.sugertea.ui.main.MainActivity;
@@ -97,8 +100,8 @@ public class HttpHelper {
                         if (baseBean.getCode() == 200) {
                             LoginBean obj = baseBean.getObj();
                             LoginInfo loginInfo = new LoginInfo(phone, code, obj);
-
-//                           UserInfoBean user = obj.getUser();
+                            UserInfoBean user = obj.getUser();
+//
 //                           user.getAvatar();//头像
 //                           user.getNickname();//昵称
 //                           user.getPhone();//电话号码
@@ -107,11 +110,25 @@ public class HttpHelper {
 //                           user.getShoucangshanghu();//收藏店铺
 //                           user.getYouhuiquan();//优惠券
 //                           user.getHuiyuanka();//会员卡
-                            EventBus.getDefault().post(loginInfo);
+
                             SPUtils instance = SPUtils.getInstance(App.appContext, Constant.SPNAME);
                             instance.putSp("phonenum", phone);
                             instance.putSp("logincode", code);
                             instance.putSp("islogin", true);
+
+                            //跟以前的token一样，可以携带用户数据
+                            DaoSession daoSession = App.getDaoSession();
+                            UserInfo userInfo = new UserInfo(phone,
+                                    user.getOpenid(),
+                                    user.getNickname(),
+                                    user.getXiadanshu(),
+                                    user.getShoucangshanghu(),
+                                    user.getYouhuiquan(),
+                                    user.getHuiyuanka(),
+                                    user.getAvatar());
+                            //如果主键存在就替换，如果不存在就存入
+                            daoSession.insertOrReplace(userInfo);
+                            EventBus.getDefault().post(userInfo);
 
                             EventBus.getDefault().post(new LoginActivity.FinishEvent());
 

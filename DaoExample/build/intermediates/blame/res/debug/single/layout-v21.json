@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/guaju/Desktop/SugerTea/DaoExample/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/Users/guaju/.android/build-cache/9e46061d3563bcebc70c3d5acfd857bf079d2602/output/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/Users/guaju/Desktop/SugerTea/DaoExample/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/Users/guaju/.android/build-cache/9e46061d3563bcebc70c3d5acfd857bf079d2602/output/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/guaju/Desktop/SugerTea/DaoExample/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/Users/guaju/.android/build-cache/9e46061d3563bcebc70c3d5acfd857bf079d2602/output/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/Users/guaju/Desktop/SugerTea/DaoExample/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/Users/guaju/.android/build-cache/9e46061d3563bcebc70c3d5acfd857bf079d2602/output/res/layout-v21/notification_template_icon_group.xml"
+    }
+]

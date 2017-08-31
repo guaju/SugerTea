@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/guaju/Desktop/SugerTea/DaoExample/build/intermediates/res/merged/debug/drawable-v21/notification_action_background.xml",
+        "source": "/Users/guaju/.android/build-cache/9e46061d3563bcebc70c3d5acfd857bf079d2602/output/res/drawable-v21/notification_action_background.xml"
+    },
+    {
+        "merged": "/Users/guaju/Desktop/SugerTea/DaoExample/build/intermediates/res/merged/debug/drawable-v21/abc_btn_colored_material.xml",
+        "source": "/Users/guaju/.android/build-cache/9e46061d3563bcebc70c3d5acfd857bf079d2602/output/res/drawable-v21/abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "/Users/guaju/Desktop/SugerTea/DaoExample/build/intermediates/res/merged/debug/drawable-v21/abc_edit_text_material.xml",
+        "source": "/Users/guaju/.android/build-cache/9e46061d3563bcebc70c3d5acfd857bf079d2602/output/res/drawable-v21/abc_edit_text_material.xml"
+    },
+    {
+        "merged": "/Users/guaju/Desktop/SugerTea/DaoExample/build/intermediates/res/merged/debug/drawable-v21/abc_action_bar_item_background_material.xml",
+        "source": "/Users/guaju/.android/build-cache/9e46061d3563bcebc70c3d5acfd857bf079d2602/output/res/drawable-v21/abc_action_bar_item_background_material.xml"
+    }
+]
