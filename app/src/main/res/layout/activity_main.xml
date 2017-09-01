@@ -69,10 +69,6 @@
             android:drawableTop="@drawable/selector_rb_mine"
             android:textColor="@drawable/selector_rb_text"
             />
-
-
-
-
     </RadioGroup>
 
 

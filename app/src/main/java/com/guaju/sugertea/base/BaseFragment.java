@@ -3,6 +3,7 @@ package com.guaju.sugertea.base;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
  */
 
 public abstract class BaseFragment extends Fragment {
+    private static final String TAG = "BaseFragment";
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -30,7 +32,15 @@ public abstract class BaseFragment extends Fragment {
     //初始化view,让子类实现
     protected abstract  View initView(LayoutInflater inflater);
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.e(TAG, "onResume: 执行了" );
+    }
 
-
-
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.e(TAG, "onStop: 执行了" );
+    }
 }

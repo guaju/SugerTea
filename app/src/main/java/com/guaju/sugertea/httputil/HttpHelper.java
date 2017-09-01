@@ -13,6 +13,7 @@ import com.guaju.sugertea.model.bean.BaseBean;
 import com.guaju.sugertea.model.bean.HomeShopBean;
 import com.guaju.sugertea.model.bean.LoginBean;
 import com.guaju.sugertea.model.bean.LoginInfo;
+import com.guaju.sugertea.model.bean.TuijianShopBean;
 import com.guaju.sugertea.model.bean.UserInfoBean;
 import com.guaju.sugertea.ui.home.HomeFragment;
 import com.guaju.sugertea.ui.login.LoginActivity;
@@ -162,5 +163,21 @@ public class HttpHelper {
                     }
                 });
     }
+    /*
+    获取首页推荐商户的信息
+     */
+    public  void  getTuijianShops(){
+        Observable<BaseBean<TuijianShopBean>> shops = api.getTuijianSHops(BSConstant.HOME_COLLECTION);
+        shops.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Action1<BaseBean<TuijianShopBean>>() {
+                    @Override
+                    public void call(BaseBean<TuijianShopBean> shops) {
+                        TuijianShopBean obj = shops.getObj();
+                        EventBus.getDefault().post(obj);
+                    }
+                });
+    }
+
 
 }

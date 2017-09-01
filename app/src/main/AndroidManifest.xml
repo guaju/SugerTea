@@ -42,6 +42,7 @@
         <activity android:name=".ui.main.MainActivity"
             android:theme="@style/AppTheme1"
             android:launchMode="singleTask"
+            android:windowSoftInputMode="stateVisible|adjustPan"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

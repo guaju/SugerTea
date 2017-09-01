@@ -16,6 +16,11 @@ public class HomePresenterImpl implements HomeContract.HomePresenter {
     private HomeContract.HomeView view;
 
     @Override
+    public void requestTuijianShops() {
+        HttpHelper.getInstance().getTuijianShops();
+    }
+
+    @Override
     public void requestADdata(String zuobiao) {
         HttpHelper.getInstance().getAD(zuobiao);
     }

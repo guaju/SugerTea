@@ -7,6 +7,7 @@ import com.guaju.sugertea.model.bean.ADBean;
 import com.guaju.sugertea.model.bean.BaseBean;
 import com.guaju.sugertea.model.bean.HomeShopBean;
 import com.guaju.sugertea.model.bean.LoginBean;
+import com.guaju.sugertea.model.bean.TuijianShopBean;
 
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -109,5 +110,10 @@ public interface API {
          @Query("zuobiao") String zuobiao
     );
 
-
+    //http://www.quanminlebang.com/api100/shanghu.php?bs=shoucangtuijian
+    //获得首页第二个viewpager的数据即 推荐商户
+    @GET(Constant.SHOP)
+    Observable<BaseBean<TuijianShopBean>> getTuijianSHops(
+            @NonNull @Query("bs") String bs
+    );
 }
