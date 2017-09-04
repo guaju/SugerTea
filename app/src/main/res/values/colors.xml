@@ -55,5 +55,6 @@
     <color name="selected_text">#4f00</color>
     <color name="normal_text">#c6c6c6</color>
     <color name="grey">#c6c6c6</color>
+    <color name="white">#fff</color>
 
 </resources>

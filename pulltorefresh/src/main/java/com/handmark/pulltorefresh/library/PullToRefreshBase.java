@@ -41,7 +41,7 @@ import com.handmark.pulltorefresh.library.internal.Utils;
 import com.handmark.pulltorefresh.library.internal.ViewCompat;
 
 public abstract class PullToRefreshBase<T extends View> extends LinearLayout implements IPullToRefresh<T> {
-
+	private static final String TAG = "PullToRefreshBase";
 	// ===========================================================
 	// Constants
 	// ===========================================================
@@ -308,6 +308,21 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 
 	@Override
 	public final boolean onTouchEvent(MotionEvent event) {
+//		switch (event.getAction()){
+//			case MotionEvent.ACTION_MOVE:
+//				int wuDownY= (int) event.getY();
+//				Log.e(TAG, "onTouchEvent: wuDownY"+wuDownY );
+//				break;
+//			case MotionEvent.ACTION_DOWN:
+//				int wuMoveY= (int) event.getY();
+//				Log.e(TAG, "onTouchEvent: wuMoveY"+wuMoveY );
+//				break;
+//			case MotionEvent.ACTION_UP:
+//				int wuUpY= (int) event.getY();
+//				Log.e(TAG, "onTouchEvent: wuUpY"+wuUpY );
+//				break;
+//		}
+
 
 		if (!isPullToRefreshEnabled()) {
 			return false;
@@ -327,6 +342,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 				if (mIsBeingDragged) {
 					mLastMotionY = event.getY();
 					mLastMotionX = event.getX();
+
 					pullEvent();
 					return true;
 				}
@@ -335,6 +351,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 
 			case MotionEvent.ACTION_DOWN: {
 				if (isReadyForPull()) {
+
 					mLastMotionY = mInitialMotionY = event.getY();
 					mLastMotionX = mInitialMotionX = event.getX();
 					return true;
@@ -344,6 +361,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 
 			case MotionEvent.ACTION_CANCEL:
 			case MotionEvent.ACTION_UP: {
+
 				if (mIsBeingDragged) {
 					mIsBeingDragged = false;
 

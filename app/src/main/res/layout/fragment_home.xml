@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.handmark.pulltorefresh.library.PullToRefreshScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<FrameLayout
+    android:id="@+id/fl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    >
+    <com.guaju.sugertea.widget.CustomScrollView
+        android:id="@+id/ptrsv"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+    >
+
 <LinearLayout
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -26,7 +39,7 @@
         <android.support.v4.view.ViewPager
             android:id="@+id/vp"
             android:layout_width="match_parent"
-            android:layout_height="148dp"/>
+            android:layout_height="@dimen/viewpagerheight"/>
         <LinearLayout
             android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
@@ -52,8 +65,13 @@
             <!--两个圆点-->
         </LinearLayout>
     </RelativeLayout>
-
-
+    <include
+        android:id="@+id/menu_dong"
+        layout="@layout/menu_home"/>
+    <TextView
+        android:layout_width="1dp"
+        android:layout_height="800dp"
+        />
 
 
 
@@ -65,4 +83,26 @@
 
 
 
-</com.handmark.pulltorefresh.library.PullToRefreshScrollView>
+</com.guaju.sugertea.widget.CustomScrollView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@color/translate"
+            />
+        <include
+            android:id="@+id/menu_jing"
+            layout="@layout/menu_home"
+            android:visibility="invisible"
+            />
+
+    </LinearLayout>
+
+</FrameLayout>
+</LinearLayout>

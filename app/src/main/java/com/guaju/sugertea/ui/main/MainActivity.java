@@ -13,7 +13,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
-import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -46,7 +45,7 @@ public class MainActivity extends FragmentActivity implements MainContract.MainV
     private TencentLocationManager locationManager;
     private TencentLocationRequest request;
     private TextView tv_location;
-    private EditText search;
+    private TextView search;
     private FrameLayout fl_msg;
     public int statusBarHeight;
     private TextView tv;
@@ -57,7 +56,7 @@ public class MainActivity extends FragmentActivity implements MainContract.MainV
     private FragmentManager fm;
     public TencentLocation tencentLocation;
     private ActionBar actionBar;
-    private View customActionbar;
+    public View customActionbar;
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -196,7 +195,7 @@ public class MainActivity extends FragmentActivity implements MainContract.MainV
         actionBar.setCustomView(R.layout.head);
         customActionbar = LayoutInflater.from(this).inflate(R.layout.head, null, true);
         tv_location = (TextView) customActionbar.findViewById(R.id.tv_location);
-        search = (EditText) customActionbar.findViewById(R.id.search);
+        search = (TextView) customActionbar.findViewById(R.id.search);
         fl_msg = (FrameLayout) customActionbar.findViewById(R.id.fl_msg);
 
 

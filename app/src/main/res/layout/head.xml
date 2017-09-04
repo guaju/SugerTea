@@ -18,7 +18,7 @@
         android:textColor="#fff"
         android:background="@drawable/bg_home_location"
         />
-    <EditText
+    <TextView
         android:layout_centerInParent="true"
         android:textColorHint="#c6c6c6"
         android:textSize="15sp"

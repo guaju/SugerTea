@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#99cc99"
+    android:orientation="vertical" >
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="这是一个菜单"/>
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <ScrollView
+            android:id="@+id/linkage_scroll"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+
+            >
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/linkage_linear_middle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="120dp"
+                    android:background="#ffcc00"
+
+                    >
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="120dp"
+
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/linkage_linear_menudong"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <Button
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:text="左边按钮"/>
+                    <Button
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:text="右边按钮"/>
+                </LinearLayout>
+                <com.guaju.floatingmenu.FullHeightListView
+                    android:id="@+id/linkage_lv"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                </com.guaju.floatingmenu.FullHeightListView>
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout
+            android:id="@+id/linkage_linear_jing"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#ff6600"
+            android:orientation="horizontal"
+            >
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:text="左边按钮"/>
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:text="右边按钮"/>
+        </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>

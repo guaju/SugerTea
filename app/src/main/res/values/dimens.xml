@@ -43,4 +43,6 @@
 
     <dimen name="ad_icon_size">6dp</dimen>
     <dimen name="home_collection">192dp</dimen>
+    <dimen name="viewpagerheight">148dp</dimen>
+    <dimen name="viewpagerheightplus">180dp</dimen>
 </resources>
