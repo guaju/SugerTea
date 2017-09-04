@@ -166,7 +166,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.HomeView 
                     //可能会有flying动作
 
                 }
-                mScrollHandler.sendEmptyMessageDelayed(SCROLLTAGDELAY,80);
+                mScrollHandler.sendEmptyMessageDelayed(SCROLLTAGDELAY,100);
                 return false;
             }
         });
