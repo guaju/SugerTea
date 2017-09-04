@@ -107,6 +107,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.HomeView 
     private int upY;
     private FrameLayout fl;
     private int vpheight;
+    private View fragment_home_home;
 
 
     @Override
@@ -122,33 +123,26 @@ public class HomeFragment extends BaseFragment implements HomeContract.HomeView 
         EventBus.getDefault().register(this);
         presenter = new HomePresenterImpl(this);
         v = inflater.inflate(R.layout.fragment_home, null, false);
+        fragment_home_home = inflater.inflate(R.layout.fragment_home_content, null, false);
         fl = (FrameLayout) v.findViewById(R.id.fl);
-        vp1 = (ImageView) v.findViewById(R.id.vp1);
-        vp2 = (ImageView) v.findViewById(R.id.vp2);
         //找到scrollview
         ptrsv = (CustomScrollView) v.findViewById(R.id.ptrsv);
+        vp1 = (ImageView) fragment_home_home.findViewById(R.id.vp1);
+        vp2 = (ImageView) fragment_home_home.findViewById(R.id.vp2);
+        //设置内容
+        ptrsv.setupContainer(getActivity(),fragment_home_home);
+
         //两个菜单view
         menu_dong = v.findViewById(R.id.menu_dong);
         menu_jing = v.findViewById(R.id.menu_jing);
         vpheight = getResources().getDimensionPixelSize(R.dimen.viewpagerheightplus);
-
         ma = (MainActivity) getActivity();
         //给scrollview添加监听
         initScrollViewListener();
-//        initpulltorefreshlistener();
-
-
         slider = (SliderLayout) v.findViewById(R.id.slider);
-
         vp = (ViewPager) v.findViewById(R.id.vp);
-
-        //初始化推荐商户的布局
-
-
-        //设置适配器
         return v;
     }
-
 
     //为scrollview添加监听事件
     private void initScrollViewListener() {
@@ -164,7 +158,6 @@ public class HomeFragment extends BaseFragment implements HomeContract.HomeView 
                     touchY=ptrsv.getScrollY();
                     mScrollHandler.sendEmptyMessage(SCROLLTAG);
                     //可能会有flying动作
-
                 }
                 mScrollHandler.sendEmptyMessageDelayed(SCROLLTAGDELAY,100);
                 return false;

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<com.daimajia.slider.library.SliderLayout
+    android:id="@+id/slider"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"/>
+<com.daimajia.slider.library.Indicators.PagerIndicator
+    android:id="@+id/indicator"
+    app:selected_color="#f00"
+    app:unselected_color="#000"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    />
+<RelativeLayout
+    android:layout_marginTop="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/viewpagerheight"/>
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#f00"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+        <ImageView
+            android:layout_margin="2dp"
+            android:id="@+id/vp1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/viewpager_selected"
+            />
+        <ImageView
+            android:layout_margin="2dp"
+            android:id="@+id/vp2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/viewpager_normal"
+            />
+        <!--两个圆点-->
+    </LinearLayout>
+</RelativeLayout>
+<include
+    android:id="@+id/menu_dong"
+    layout="@layout/menu_home"/>
+<TextView
+    android:layout_width="1dp"
+    android:layout_height="800dp"
+    />
+
+
+
+
+</LinearLayout>
