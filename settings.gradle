@@ -1,3 +1,3 @@
-include  ':app', ':DaoExample'
-include ':pulltorefresh'
-//,':floatingmenu'
+include ':app', ':animcircle'
+//include ':pulltorefresh'
+//,':floatingmenu'':DaoExample' , ':permissiontest'

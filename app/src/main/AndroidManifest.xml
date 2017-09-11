@@ -43,6 +43,7 @@
             android:theme="@style/AppTheme1"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait"
 
             >
             <intent-filter>

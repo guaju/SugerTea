@@ -30,6 +30,7 @@ import com.guaju.sugertea.ui.login.ChooseLoginActivity;
 import com.guaju.sugertea.ui.mine.MineFragment;
 import com.guaju.sugertea.utils.MeasureUtils;
 import com.guaju.sugertea.utils.SPUtils;
+import com.guaju.sugertea.utils.SignUtils;
 import com.tencent.map.geolocation.TencentLocation;
 import com.tencent.map.geolocation.TencentLocationManager;
 import com.tencent.map.geolocation.TencentLocationRequest;
@@ -67,6 +68,9 @@ public class MainActivity extends FragmentActivity implements MainContract.MainV
         setContentView(R.layout.activity_main);
         fm = getSupportFragmentManager();
 
+        //刘永宝
+        initLogin();
+
         setPresenter(this);
         mainPresenter.mainView.setActionBar(this);
 //        mainPresenter.mainView.setStatusBar(this);
@@ -77,7 +81,17 @@ public class MainActivity extends FragmentActivity implements MainContract.MainV
         switch2Fragment("home");
 
     }
-//切换fragment逻辑
+
+    private void initLogin() {
+        String username="11101110030";
+        String pass="123456";
+        String errornum="0";
+        String checkUser = SignUtils.getSignInfo("checkUser", username, pass, errornum);
+        HttpHelper.getInstance().lybLogin(username,pass,errornum,checkUser);
+
+    }
+
+    //切换fragment逻辑
     private void test() {
         RadioGroup rg = (RadioGroup) findViewById(R.id.rg);
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -249,4 +263,8 @@ public class MainActivity extends FragmentActivity implements MainContract.MainV
         super.onDestroy();
         EventBus.getDefault().unregister(this);
     }
+
+
+
+
 }

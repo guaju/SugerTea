@@ -70,6 +70,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.HomeView 
             if (SCROLLTAG == msg.what) {
                     Log.e(TAG, "handleMessage: touchy"+touchY+"--scrolly"+ptrsv.getScrollY());
                 if (touchY!=ptrsv.getScrollY()){
+                    //说明惯性事件发生，手指猛滑会发生
                    return;
                 }
                  /*
@@ -88,6 +89,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.HomeView 
                 //__________________________________________________________________________________
             }
             if (SCROLLTAGDELAY == msg.what){
+                //此判断仅仅是避免多次执行这里面的操作
                 if (touchY!=ptrsv.getScrollY()){
                     menu_dong.getLocationOnScreen(locationdong);
                     menu_jing.getLocationOnScreen(locationjing);
@@ -151,33 +153,42 @@ public class HomeFragment extends BaseFragment implements HomeContract.HomeView 
             public boolean onTouch(View v, MotionEvent event) {
                 //当手指滑动或者当手指抬起的时候给handler发送事件，让handler处理滚动的逻辑
                 if (event.getAction() == MotionEvent.ACTION_MOVE) {
+                    //记录当时的scrolly值 ，不会出现惯性的事件
                     touchY=ptrsv.getScrollY();
                     mScrollHandler.sendEmptyMessage(SCROLLTAG);
                 }
                 if (event.getAction() == MotionEvent.ACTION_UP) {
+                    //当我up的时候touchY就不变了 ，只有当up的时候才会出现惯性事件
                     touchY=ptrsv.getScrollY();
                     mScrollHandler.sendEmptyMessage(SCROLLTAG);
                     //可能会有flying动作
                 }
+                //不管move还是up都延迟发送消息，并且消息是另外一个what值
                 mScrollHandler.sendEmptyMessageDelayed(SCROLLTAGDELAY,100);
                 return false;
             }
         });
+        //接口回调
+        //5.让用户传入接口
         //背景渐变效果
         ptrsv.setScrollViewListener(new CustomScrollView.ScrollViewListener() {
             @Override
-            public void onscroll(CustomScrollView csv, int l, int t, int oldl, int oldt) {
+            public void onscroll(CustomScrollView csv,int t) {
+                    Log.e(TAG, "onscroll:t的值 "+t );
                 if (t <= 0) {
                     // 只是layout背景透明(仿知乎滑动效果)
                     ma.customActionbar.setBackgroundColor(Color.argb(0,255, 255, 255));
                     //添加条目
 
                 } else{
-                    float scale = (float) t / vpheight;
-                    float alpha = (255 * scale);
+                    //大于某值得时候就需要设置透明度
+
+                    float scale = (float) t / vpheight;  //透明度按照比例去设置
+                    float alpha = (255 * scale);  //算出当前的透明度值
                         Log.e(TAG, "onscroll: hehe"+t );
                     // 只是layout背景透明(仿知乎滑动效果)
                        int alphaint=(int)alpha;
+                    //因为算出来的值可能永远不能等于255，所以这么设置
                     if(alpha>=250){
                         alphaint=255;
                     }

@@ -27,15 +27,20 @@ public class CustomScrollView extends ScrollView {
     private OnRefreshScrollViewListener listener = null;
     private LinearLayout scrollContainer = null;
     private ScrollViewHeader headerView = null;
+    //接口回调
+    //2.声明一个对象
     ScrollViewListener svl;
+
     public CustomScrollView(Context context) {
         super(context);
         if (!isInEditMode()) {
             initView(context);
         }
     }
+   //接口回调
+   // 1.定义一个接口，让用户去创建，并且实现方法
     public interface  ScrollViewListener{
-        void onscroll(CustomScrollView csv,int l, int t, int oldl, int oldt);
+        void onscroll(CustomScrollView csv,int t);
     }
 
     public CustomScrollView(Context context, AttributeSet attrs) {
@@ -51,15 +56,20 @@ public class CustomScrollView extends ScrollView {
             initView(context);
         }
     }
+    //接口回调
+    //3.定义一个让用户传入接口的方法
+    //用来处理透明度的接口回调
     public void setScrollViewListener(ScrollViewListener listener){
            this.svl=listener;
     }
 
+    //接口回调
+    //4.让需要调用接口的地方调用接口
     @Override
     protected void onScrollChanged(int l, int t, int oldl, int oldt) {
         super.onScrollChanged(l, t, oldl, oldt);
         if(svl!=null){
-            svl.onscroll(this,l,t,oldl,oldt);
+            svl.onscroll(this,t);
         }
     }
 

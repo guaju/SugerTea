@@ -3,6 +3,7 @@ package com.guaju.sugertea.httputil;
 import android.util.Log;
 
 import com.guaju.sugertea.api.API;
+import com.guaju.sugertea.api.APILYB;
 import com.guaju.sugertea.app.App;
 import com.guaju.sugertea.constant.BSConstant;
 import com.guaju.sugertea.constant.Constant;
@@ -15,6 +16,7 @@ import com.guaju.sugertea.model.bean.LoginBean;
 import com.guaju.sugertea.model.bean.LoginInfo;
 import com.guaju.sugertea.model.bean.TuijianShopBean;
 import com.guaju.sugertea.model.bean.UserInfoBean;
+import com.guaju.sugertea.model.lybbean.Test;
 import com.guaju.sugertea.ui.home.HomeFragment;
 import com.guaju.sugertea.ui.login.LoginActivity;
 import com.guaju.sugertea.ui.main.MainActivity;
@@ -41,7 +43,9 @@ import static de.greenrobot.event.EventBus.TAG;
 public class HttpHelper {
     private static HttpHelper helper = new HttpHelper();
     private Retrofit retrofit;
+    private Retrofit retrofitlyb;
     private final API api;
+    private final APILYB apilyb;
 
     private HttpHelper() {
         retrofit = new Retrofit.Builder()
@@ -49,7 +53,16 @@ public class HttpHelper {
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
+        retrofitlyb = new Retrofit.Builder()
+                .baseUrl("http://testhf.irongbei.com/AppApi4/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .build();
         api = retrofit.create(API.class);
+        apilyb = retrofitlyb.create(APILYB.class);
+       // 49932DFEA05F61D1378BF970E4B30726F6806479A29E
+       // 49932DFEA05F1BE6ED4C8692F8EB1B10EF0522D3B779
+
     }
 
     public static HttpHelper getInstance() {
@@ -179,5 +192,15 @@ public class HttpHelper {
                 });
     }
 
-
+    public void  lybLogin(String username,String pass,String num,String sign){
+        Observable<Test> login = apilyb.login(username, pass, num, sign);
+        login.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Action1<Test>() {
+                    @Override
+                    public void call(Test test) {
+                        Log.e(TAG, "call: "+test.getMsg() );
+                    }
+                });
+    }
 }
