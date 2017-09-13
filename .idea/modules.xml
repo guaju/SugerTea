@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SugerTea.iml" filepath="$PROJECT_DIR$/SugerTea.iml" />
+      <module fileurl="file://$PROJECT_DIR$/animcircle/animcircle.iml" filepath="$PROJECT_DIR$/animcircle/animcircle.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
