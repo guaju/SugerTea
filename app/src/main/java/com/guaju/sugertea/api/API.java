@@ -6,6 +6,7 @@ import com.guaju.sugertea.constant.Constant;
 import com.guaju.sugertea.model.bean.ADBean;
 import com.guaju.sugertea.model.bean.BaseBean;
 import com.guaju.sugertea.model.bean.HomeShopBean;
+import com.guaju.sugertea.model.bean.HomeShopListBean;
 import com.guaju.sugertea.model.bean.LoginBean;
 import com.guaju.sugertea.model.bean.TuijianShopBean;
 
@@ -115,5 +116,16 @@ public interface API {
     @GET(Constant.SHOP)
     Observable<BaseBean<TuijianShopBean>> getTuijianSHops(
             @NonNull @Query("bs") String bs
+    );
+
+    //http://www.quanminlebang.com/api100/shanghu.php?bs=jingxuanshanghu&openid=104cca5fad614b53e494e5198f4cdb47&paixu=0&zuobiao=116.125586,40.232195&page=1
+    @GET(Constant.SHOP)
+    Observable<BaseBean<HomeShopListBean>>  getHomeListBean(
+            @NonNull @Query("bs") String bs,
+            @Query("openid") String openid,
+            @NonNull @Query("paixu") String paixu,
+            @NonNull @Query("zuobiao") String zuobiao,
+            @NonNull @Query("page") String page
+
     );
 }

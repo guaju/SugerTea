@@ -4,6 +4,8 @@ import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -16,9 +18,11 @@ import android.widget.Toast;
 import com.daimajia.slider.library.SliderLayout;
 import com.guaju.sugertea.R;
 import com.guaju.sugertea.adpter.HomeItemGvAdapter;
+import com.guaju.sugertea.adpter.HomeShopAdapter;
 import com.guaju.sugertea.adpter.TuijianShopPagerAdapter;
 import com.guaju.sugertea.base.BaseFragment;
 import com.guaju.sugertea.model.bean.ADBean;
+import com.guaju.sugertea.model.bean.HomeShopListBean;
 import com.guaju.sugertea.model.bean.TuijianShopBean;
 import com.guaju.sugertea.ui.main.MainActivity;
 import com.guaju.sugertea.widget.CustomScrollView;
@@ -110,12 +114,16 @@ public class HomeFragment extends BaseFragment implements HomeContract.HomeView 
     private FrameLayout fl;
     private int vpheight;
     private View fragment_home_home;
+    //变为公有 以便presenter调用
+    public RecyclerView rv_list;
 
 
     @Override
     protected void initData() {
         //请求数据
         presenter.requestTuijianShops();
+        //请求home list数据
+        presenter.requestHomeListData("0","1");
 
     }
 
@@ -125,12 +133,21 @@ public class HomeFragment extends BaseFragment implements HomeContract.HomeView 
         EventBus.getDefault().register(this);
         presenter = new HomePresenterImpl(this);
         v = inflater.inflate(R.layout.fragment_home, null, false);
+        //拿到首页内容布局
         fragment_home_home = inflater.inflate(R.layout.fragment_home_content, null, false);
+
+
         fl = (FrameLayout) v.findViewById(R.id.fl);
         //找到scrollview
         ptrsv = (CustomScrollView) v.findViewById(R.id.ptrsv);
         vp1 = (ImageView) fragment_home_home.findViewById(R.id.vp1);
         vp2 = (ImageView) fragment_home_home.findViewById(R.id.vp2);
+        //拿到recyclerView
+        rv_list = (RecyclerView) fragment_home_home.findViewById(R.id.rv_list);
+        //嵌套scrollview使用时禁用掉自己的滚动
+
+        rv_list.setNestedScrollingEnabled(false);
+
         //设置内容
         ptrsv.setupContainer(getActivity(),fragment_home_home);
 
@@ -219,6 +236,15 @@ public class HomeFragment extends BaseFragment implements HomeContract.HomeView 
         showNetError();
     }
 
+    @Subscribe(threadMode = ThreadMode.MainThread)
+    public void showHomeShopList(HomeShopListBean listBean) {
+        //设置homelist适配器
+         showHomeShopLists(rv_list);
+         presenter.setHomeListAdapter(new HomeShopAdapter(getActivity(),(ArrayList<HomeShopListBean.ListBean>) listBean.getList()));
+
+
+    }
+
     //当获取到推荐商户时，怎么做
     @Subscribe(threadMode = ThreadMode.MainThread)
     public void showVP2(TuijianShopBean obj) {
@@ -281,6 +307,15 @@ public class HomeFragment extends BaseFragment implements HomeContract.HomeView 
 
             }
         });
+
+
+    }
+
+    @Override
+    public void showHomeShopLists(RecyclerView rv) {
+        //设置layoutmanager
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        rv.setLayoutManager(linearLayoutManager);
 
 
     }

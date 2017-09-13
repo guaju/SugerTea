@@ -12,6 +12,7 @@ import com.guaju.sugertea.dao.bean.UserInfo;
 import com.guaju.sugertea.model.bean.ADBean;
 import com.guaju.sugertea.model.bean.BaseBean;
 import com.guaju.sugertea.model.bean.HomeShopBean;
+import com.guaju.sugertea.model.bean.HomeShopListBean;
 import com.guaju.sugertea.model.bean.LoginBean;
 import com.guaju.sugertea.model.bean.LoginInfo;
 import com.guaju.sugertea.model.bean.TuijianShopBean;
@@ -200,6 +201,25 @@ public class HttpHelper {
                     @Override
                     public void call(Test test) {
                         Log.e(TAG, "call: "+test.getMsg() );
+                    }
+                });
+    }
+    /**
+     * 得到首页商户列表
+     */
+    public void  getHomeShopList(String openid,String paixu,String zuobiao,String page){
+        final Observable<BaseBean<HomeShopListBean>> homeListBean = api.getHomeListBean(BSConstant.SHOP_LIST, openid, paixu, zuobiao, page);
+        homeListBean.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Action1<BaseBean<HomeShopListBean>>() {
+                    @Override
+                    public void call(BaseBean<HomeShopListBean> homeShopListBeanBaseBean) {
+                        if (homeShopListBeanBaseBean.getCode()==200){
+                            HomeShopListBean obj = homeShopListBeanBaseBean.getObj();
+                            //往homefragment发送事件消息
+                            EventBus.getDefault().post(obj);
+
+                        }
                     }
                 });
     }

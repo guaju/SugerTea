@@ -2,12 +2,12 @@ package com.guaju.sugertea.widget;
 
 import android.content.Context;
 import android.os.Handler;
+import android.support.v4.widget.NestedScrollView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.Scroller;
 import android.widget.Toast;
 
@@ -15,7 +15,7 @@ import android.widget.Toast;
  * Created by guaju on 2017/9/4.
  */
 
-public class CustomScrollView extends ScrollView {
+public class CustomScrollView extends NestedScrollView {
 
     private final static int SCROLL_DURATION = 400;
     private final static float OFFSET_RADIO = 1.8f;

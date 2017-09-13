@@ -52,10 +52,12 @@
 <include
     android:id="@+id/menu_dong"
     layout="@layout/menu_home"/>
-<TextView
-    android:layout_width="1dp"
-    android:layout_height="800dp"
-    />
+<android.support.v7.widget.RecyclerView
+    android:id="@+id/rv_list"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+
+
 
 
 

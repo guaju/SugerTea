@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="paint">2dp</dimen>
+    <dimen name="paint">10dp</dimen>
     <dimen name="radius">50dp</dimen>
+    <dimen name="paintBlue">5dp</dimen>
+    <dimen name="textsize">15sp</dimen>
 </resources>

@@ -139,7 +139,8 @@ public class MainActivity extends FragmentActivity implements MainContract.MainV
         if (mineFragment!=null){
             ft.hide(mineFragment);
         }
-        ft.commit();
+        //允许状态丢失
+        ft.commitAllowingStateLoss();
     }
 
 

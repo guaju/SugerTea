@@ -1,5 +1,7 @@
 package com.guaju.sugertea.ui.main;
 
+import com.guaju.sugertea.constant.Constant;
+import com.guaju.sugertea.utils.SPUtils;
 import com.tencent.map.geolocation.TencentLocation;
 import com.tencent.map.geolocation.TencentLocationListener;
 import com.tencent.map.geolocation.TencentLocationManager;
@@ -34,6 +36,7 @@ public class MainPresenter implements MainContract.Presenter {
                 double latitude = tencentLocation.getLatitude();
                 double longitude = tencentLocation.getLongitude();
                 mainView.setLocationText(tencentLocation.getName());
+                SPUtils.getInstance(mainActivity, Constant.SPNAME).putSp("location",latitude+","+longitude);
                 //给homefragment发送坐标过去
                 HashMap<Double, Double> map = new HashMap<>();
                 map.put(latitude,longitude);

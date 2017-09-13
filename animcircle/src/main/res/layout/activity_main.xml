@@ -9,20 +9,9 @@
     tools:context="com.guaju.animcircle.MainActivity">
 
   <com.guaju.animcircle.widget.AnimCircle
+      android:id="@+id/ac"
       android:layout_width="200dp"
       android:layout_height="200dp"
       />
- <com.guaju.animcircle.widget.AnimCircle
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     />
- <com.guaju.animcircle.widget.AnimCircle
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     />
- <com.guaju.animcircle.widget.AnimCircle
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     />
 
 </LinearLayout>
